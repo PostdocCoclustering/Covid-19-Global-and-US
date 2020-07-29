@@ -1,0 +1,468 @@
+---
+title: "Covid19global"
+author: "Gabriel Wallin"
+date: "7/20/2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "C:/Users/Gabriel/Documents/Coclustering/Covid-19 project_Gobal")
+```
+
+## R Markdown
+
+This is an R Markdown document analyzing global Covid-19 data. 
+
+```{r, include=FALSE}
+# working directory and packages
+
+setwd("C:/Users/Gabriel/Documents/Coclustering/Covid-19 project_Gobal")
+path <- getwd()
+
+# install / load packages
+p <- c("xtable", "ggplot2", "funLBM", "dplyr", "tidyr", "maps", "RColorBrewer",
+       "lubridate", "COVID19", "devtools", "shinySIR", "coronavirus")
+
+install.packages(p)
+lapply(p, require, character.only = TRUE)
+
+# Install SIR package from Github:
+install_github("lilywang1988/eSIR")
+library(eSIR)
+
+# Calendar plot function
+source(file = paste0(path,"/Code/CalendarFunction.R"))
+```
+
+## Load data
+
+```{r}
+# load & transform data 
+covid19df <- covid19()
+
+#load(file = paste0(path,"/Data/time_series_covid19_confirmed_global.RData"))
+```
+
+Lets start with defining the data matrix by removing everything that is not cases and start counting from March 9th. The countries are listed on the rows, and on the dates are spread across the columns.
+
+```{r data matrix, include=FALSE}
+
+# Turn dataframe into wide format
+
+# Cases
+A_cases <- as.data.frame(covid19df[,c(1,2,4)])
+A_cases_wide <- pivot_wider(A_cases, names_from = date, values_from = confirmed)
+
+# Deaths
+A_deaths <- as.data.frame(covid19df[,c(1,2,6)])
+A_deaths_wide <- pivot_wider(A_deaths, names_from = date, values_from = deaths)
+
+# Recovered
+A_rec <- as.data.frame(covid19df[,c(1,2,5)])
+A_rec_wide <- pivot_wider(A_rec, names_from = date, values_from = recovered)
+
+```
+
+Next we create a matrix for weeks, where the countries are spread along the rows
+and each column is the sum of the last seven days. There are 266 countries and 12 weeks in the data set, so the matrix will be of dimension 266x12.  
+
+```{r, inlcude=FALSE}
+
+# Gather all Mondays, Tuesdays,... and so on in separate vectors
+# Cases:
+MondayCases <- A_cases_wide[,c(56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126,
+                               133, 140, 147, 154, 161, 168)]
+
+TuesdayCases <- A_cases_wide[,c((56+1), (63+1), (70+1), (77+1), (84+1), (91+1),
+                                (98+1), (105+1), (112+1), (119+1), (126+1),
+                                (133+1), (140+1), (147+1), (154+1), (161+1), 
+                                (168+1))]
+
+WednesdayCases <- A_cases_wide[,c((56+2), (63+2), (70+2), (77+2), (84+2), (91+2),
+                                (98+2), (105+2), (112+2), (119+2), (126+2),
+                                (133+2), (140+2), (147+2), (154+2), (161+2), 
+                                (168+2))]
+
+ThursdayCases <- A_cases_wide[,c((56+3), (63+3), (70+3), (77+3), (84+3), (91+3),
+                                (98+3), (105+3), (112+3), (119+3), (126+3),
+                                (133+3), (140+3), (147+3), (154+3), (161+3), 
+                                (168+3))]
+
+FridayCases <- A_cases_wide[,c((56+4), (63+4), (70+4), (77+4), (84+4), (91+4),
+                                (98+4), (105+4), (112+4), (119+4), (126+4),
+                                (133+4), (140+4), (147+4), (154+4), (161+4), 
+                                (168+4))]
+
+SaturdayCases <- A_cases_wide[,c((56+5), (63+5), (70+5), (77+5), (84+5), (91+5),
+                                (98+5), (105+5), (112+5), (119+5), (126+5),
+                                (133+5), (140+5), (147+5), (154+5), (161+5), 
+                                (168+5))]
+
+SundayCases <- A_cases_wide[,c((56+6), (63+6), (70+6), (77+6), (84+6), (91+6),
+                                (98+6), (105+6), (112+6), (119+6), (126+6),
+                                (133+6), (140+6), (147+6), (154+6), (161+6), 
+                                (168+6))]
+
+# Deaths:
+MondayDeaths <- A_deaths_wide[,c(56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126,
+                               133, 140, 147, 154, 161, 168)]
+
+TuesdayDeaths <- A_deaths_wide[,c((56+1), (63+1), (70+1), (77+1), (84+1), (91+1),
+                                (98+1), (105+1), (112+1), (119+1), (126+1),
+                                (133+1), (140+1), (147+1), (154+1), (161+1), 
+                                (168+1))]
+
+WednesdayDeaths <- A_deaths_wide[,c((56+2), (63+2), (70+2), (77+2), (84+2),
+                                    (91+2), (98+2), (105+2), (112+2), (119+2),
+                                    (126+2), (133+2), (140+2), (147+2), (154+2),
+                                    (161+2), (168+2))]
+
+ThursdayDeaths <- A_deaths_wide[,c((56+3), (63+3), (70+3), (77+3), (84+3),
+                                   (91+3), (98+3), (105+3), (112+3), (119+3),
+                                   (126+3), (133+3), (140+3), (147+3), (154+3),
+                                    (161+3), (168+3))]
+
+FridayDeaths <- A_deaths_wide[,c((56+4), (63+4), (70+4), (77+4), (84+4), (91+4),
+                                (98+4), (105+4), (112+4), (119+4), (126+4),
+                                (133+4), (140+4), (147+4), (154+4), (161+4),
+                                (168+4))]
+
+SaturdayDeaths <- A_deaths_wide[,c((56+5), (63+5), (70+5), (77+5), (84+5),
+                                   (91+5), (98+5), (105+5), (112+5), (119+5),
+                                   (126+5), (133+5), (140+5), (147+5), (154+5),
+                                   (161+5), (168+5))]
+
+SundayDeaths <- A_deaths_wide[,c((56+6), (63+6), (70+6), (77+6), (84+6), (91+6),
+                                (98+6), (105+6), (112+6), (119+6), (126+6),
+                                (133+6), (140+6), (147+6), (154+6), (161+6),
+                                (168+6))]
+
+
+# Recovered
+MondayRec <- A_rec_wide[,c(56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126,
+                               133, 140, 147, 154, 161, 168)]
+
+TuesdayRec <- A_rec_wide[,c((56+1), (63+1), (70+1), (77+1), (84+1), (91+1),
+                                (98+1), (105+1), (112+1), (119+1), (126+1),
+                                (133+1), (140+1), (147+1), (154+1), (161+1), 
+                                (168+1))]
+
+WednesdayRec <- A_rec_wide[,c((56+2), (63+2), (70+2), (77+2), (84+2),
+                                    (91+2), (98+2), (105+2), (112+2), (119+2),
+                                    (126+2), (133+2), (140+2), (147+2), (154+2),
+                                    (161+2), (168+2))]
+
+ThursdayRec <- A_rec_wide[,c((56+3), (63+3), (70+3), (77+3), (84+3),
+                                   (91+3), (98+3), (105+3), (112+3), (119+3),
+                                   (126+3), (133+3), (140+3), (147+3), (154+3),
+                                    (161+3), (168+3))]
+
+FridayRec <- A_rec_wide[,c((56+4), (63+4), (70+4), (77+4), (84+4), (91+4),
+                                (98+4), (105+4), (112+4), (119+4), (126+4),
+                                (133+4), (140+4), (147+4), (154+4), (161+4),
+                                (168+4))]
+
+SaturdayRec <- A_rec_wide[,c((56+5), (63+5), (70+5), (77+5), (84+5),
+                                   (91+5), (98+5), (105+5), (112+5), (119+5),
+                                   (126+5), (133+5), (140+5), (147+5), (154+5),
+                                   (161+5), (168+5))]
+
+SundayRec <- A_rec_wide[,c((56+6), (63+6), (70+6), (77+6), (84+6), (91+6),
+                                (98+6), (105+6), (112+6), (119+6), (126+6),
+                                (133+6), (140+6), (147+6), (154+6), (161+6),
+                                (168+6))]
+
+# Create array of the dataframes:
+cases_array <- array(c(unlist(MondayCases), unlist(TuesdayCases), 
+                         unlist(WednesdayCases), unlist(ThursdayCases), 
+                         unlist(FridayCases), unlist(SaturdayCases),
+                         unlist(SundayCases)), c(266, 17, 7))
+# c(266, 17, 7) = number of countries, number weeks, number of days in a week
+
+deaths_array <- array(c(unlist(MondayDeaths), unlist(TuesdayDeaths), 
+                         unlist(WednesdayDeaths), unlist(ThursdayDeaths), 
+                         unlist(FridayDeaths), unlist(SaturdayDeaths),
+                         unlist(SundayDeaths)), c(266, 17, 7))
+
+rec_array <- array(c(unlist(MondayRec), unlist(TuesdayRec), 
+                         unlist(WednesdayRec), unlist(ThursdayRec), 
+                         unlist(FridayRec), unlist(SaturdayRec),
+                         unlist(SundayRec)), c(266, 17, 7))
+
+```
+
+We can now perform co-clustering. We start by co-clustering considering cases, deaths and recovered separately. We are using the Fourier transform as basis function, we are using 6 basis functions, and "kmeans" for the initial values in the parameter estimation. We are looking for the best number of clusters according to the ICL measure. 
+
+```{r}
+
+# Univariate co-clustering of 'cases':
+CoClust_cases <- funLBM(cases_array, K=2:20,L=2:20,
+       basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
+
+### Plotting the results:
+plot(CoClust_cases, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_cases, type='proportions')
+plot(CoClust_cases, type='means')
+
+
+
+# Univariate co-clustering of 'deaths':
+CoClust_deaths <- funLBM(deaths_array, K=2:15,L=2:15,
+       basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
+
+### Plotting the results:
+plot(CoClust_deaths, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_deaths, type='proportions')
+plot(CoClust_deaths, type='means')
+
+
+
+# Univariate co-clustering of 'recovered':
+CoClust_rec <- funLBM(rec_array, K=2:15,L=2:15,
+       basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
+
+### Plotting the results:
+plot(CoClust_rec, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_rec, type='proportions')
+plot(CoClust_rec, type='means')
+
+```
+
+Next we consider cases and deaths simultaneously in a multivariate function. 
+
+```{r}
+# Create array containing both cases and deaths for all weeks under study:
+multivariate_array <- list("data1" = cases_array, "data2" = deaths_array)
+
+# Create array containing cases, deaths and recovered for all weeks under study:
+multivariate_array2 <- list("data1" = cases_array, "data2" = deaths_array, 
+                            "data3" = rec_array)
+
+set.seed(333)
+## Co-clustering multivariate function:
+CoClust_multi <- funLBM(list(multivariate_array$data1,
+                                   multivariate_array$data2), K=2:20,L=2:20,
+                                   basis.name = "fourier", nbasis=6, 
+                                   init="kmeans", mc.cores = 3) 
+
+### Plotting the results:
+plot(CoClust_multi, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_multi, type='proportions')
+plot(CoClust_multi, type='means')
+
+
+
+## Co-clustering multivariate function number 2:
+CoClust_multi2 <- funLBM(list(multivariate_array2$data1,
+                                   multivariate_array2$data2,
+                                   multivariate_array2$data3), K=2:10,L=2:10,
+                                   basis.name = "fourier", nbasis=6, 
+                                   init="kmeans", mc.cores = 3) 
+
+### Plotting the results:
+plot(CoClust_multi2, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_multi2, type='proportions')
+plot(CoClust_multi2, type='means')
+```
+
+Next we make some trajectory plots.
+
+```{r}
+
+# Turn dataframe into wide format:
+A_wide <- pivot_longer(A, cols = -c("Country.Region"), names_to = "day")
+
+# Add cluster to df: 
+A_wide$RowClust <- as.numeric(rep(CoClust_cases$row_clust, 
+                              each = nrow(subset(A_wide, A_wide$Country.Region ==
+                                              "Afghanistan"))))  
+
+# Trajectories, deaths:
+ggplot(data=A_wide,
+       aes(x=day, y=value, group=Country.Region, color=RowClust)) +
+  geom_point() +
+  geom_line() +
+  ggtitle("Number of deaths per day for each row country")
+
+
+# storing the graph to an object -- I can add more layers later!
+cases_graph <- ggplot(data=A_wide,
+                     aes(x=day, y=value, group=Country.Region, color=RowClust)) +
+  geom_line(alpha=0.5) +
+  ggtitle("Number of deaths per day for each row cluster") +
+  theme_bw() +
+  scale_fill_manual(values=c("mediumorchid4", "darkgoldenrod1", "deepskyblue", "yellow", "red"))
+
+cases_graph 
+
+cases_graph +
+  facet_grid(. ~ RowClust)
+
+```
+
+
+Next lets make a map.
+
+```{r}
+
+colors <-brewer.pal(12 , "Paired")
+
+# Cases
+map(database = "world", fill = T, col = colors[CoClust_cases$row_clust])
+
+# Deaths
+map(database = "world", fill = T, col = colors[CoClust_deaths$row_clust])
+
+# Cases and deaths:
+map(database = "world", fill = T, col = colors[CoClust_multi$row_clust])
+
+# Cases, deaths and recovered:
+map(database = "world", fill = T, col = colors[CoClust_multi2$row_clust])
+```
+
+
+We make a calendar plot
+
+```{r}
+
+# Geographical plot
+day1 = '2020-03-09'
+lastday = '2020-07-05'
+dates = seq(as.Date(day1), as.Date(lastday), by = 'day')
+
+# Calendar plot for cases:
+cls_cases = rep(CoClust_cases$col_clust, each = 7)
+df_cases = data.frame(dates, counts = cls_cases)
+
+plot.calendar(df_cases)
+
+# Calendar plot for deaths:
+cls_deaths = rep(CoClust_deaths$col_clust, each = 7)
+df_deaths = data.frame(dates, counts = cls_deaths)
+
+plot.calendar(df_deaths)
+
+# Calendar plot for cases and deaths (multivariate):
+cls_multi = rep(CoClust_multi$col_clust, each = 7)
+df_multi = data.frame(dates, counts = cls_multi)
+
+plot.calendar(df_multi)
+
+
+# Calendar plot for cases, deaths and recovered (multivariate):
+cls_multi2 = rep(CoClust_multi2$col_clust, each = 7)
+df_multi2 = data.frame(dates, counts = cls_multi2)
+
+plot.calendar(df_multi2)
+
+
+```
+
+
+Next we implement the SIR model. The standard SIR model has three components: susceptible, infected, and removed (including the recovery and dead). 
+
+## Model 1 using `tvt.eSIR()`: a SIR model with a time-varying transmission rate
+
+By introducing a time-dependent $$\pi(t)\in [0,1]$$ function that modifies the transmission rate $$\beta$$, we can depict a series of time-varying changes caused by either external variations like government policies, protective measures and environment changes, or internal variations like mutations and evolutions of the pathogen. 
+
+
+Example using Hubei data:
+
+```{r model1}
+set.seed(20192020)
+library(eSIR)
+# Hubei province data Jan13 -> Feb 11
+# cumulative number of infected
+
+# Number of cases (I)
+NI_complete <- c( 41, 41, 41, 45, 62, 131, 200, 270, 375, 444, 549, 729,
+                   1052, 1423, 2714, 3554, 4903, 5806, 7153, 9074, 11177,
+                13522,16678,19665,22112,24953,27100,29631,31728,33366)
+# Global data
+NI_complete <- covid19df[-c()]
+View(covid19df)
+# Number of removed
+RI_complete <- c(1, 1, 7, 10, 14, 20, 25, 31, 34, 45, 55, 71, 94, 
+                   121, 152, 213, 252, 345, 417, 561, 650, 811, 
+                   1017, 1261, 1485, 1917, 2260, 2725,3284,3754)
+N <- 58.5e6
+R <- RI_complete / N
+Y <- NI_complete / N - R #Jan13->Feb 11
+
+### Y and R are observed proportions of infected and removed compartments
+
+### Step function of pi(t)
+change_time <- c("01/23/2020", "02/04/2020", "02/08/2020")
+pi0<- c(1.0, 0.9, 0.5, 0.1)
+res.step <- tvt.eSIR(Y, R, begin_str = "01/13/2020", T_fin = 200,
+            pi0 = pi0, change_time = change_time, dic = T, 
+            casename = "Hubei_step", save_files = T, save_mcmc=F,
+            save_plot_data = F, M = 5e3, nburnin = 2e3)
+  
+res.step$plot_infection
+res.step$plot_removed
+res.step$spaghetti_plot
+res.step$dic_val
+
+#res.step$gelman_diag_list
+### continuous exponential function of pi(t)
+res.exp <- tvt.eSIR(Y, R, begin_str="01/13/2020", death_in_R = 0.4,
+                      T_fin = 200, exponential = TRUE, dic=FALSE, lambda0 = 0.05,
+                     casename = "Hubei_exp", save_files = FALSE, save_mcmc = FALSE,
+                     save_plot_data = FALSE, M = 5e3,nburnin = 2e3)
+  
+res.exp$plot_infection
+res.exp$spaghetti_plot
+#res.exp$plot_removed
+
+### without pi(t), the standard state-space SIR model without intervention
+res.nopi <- tvt.eSIR(Y, R, begin_str = "01/13/2020", death_in_R = 0.4, 
+                       T_fin = 200, casename = "Hubei_nopi",
+                       save_files = F,save_plot_data = F,
+                       M=5e3,nburnin = 2e3)
+res.nopi$plot_infection
+res.nopi$spaghetti_plot
+
+```
+
+To address the under-reporting issue associated with the available public databases and to build the self-immunization into the infection dynamics, we then further extend the previous eSIR model to an eSAIR model by adding an antibody (A) compartment.
+
+```{r model 2}
+NI_complete <- c( 1, 2, 11, 23, 31, 76, 106, 142, 150, 220, 327,
+                  421, 613, 615, 967, 1578, 3038, 5704, 8403,
+                  11727, 15800, 20884, 25681, 30841, 37877,
+                  44876, 52410, 59648, 66663, 75833, 83948,
+                  92506, 102987, 113833, 123160, 131815,
+                  139875, 151061, 161779, 172348, 181026,
+                  189033, 195749, 203020, 214454, 223691,
+                  230597, 237474, 243382, 248416, 253519,
+                  258222, 263460, 271590, 282143, 288045,
+                  291996, 295106, 299691, 304372, 308314)
+  RI_complete <- c(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 
+                   20, 26, 38, 52, 200, 311, 468, 662,
+                   893, 1144, 1547, 2144, 2931, 3900, 
+                   5133, 6201, 7657, 9483, 11536, 
+                   13915, 16276, 18781, 21110, 23424,
+                   26469, 29784, 32899, 35785, 37730, 
+                   39207, 40703, 42164, 43488, 44723, 
+                   45887, 47473, 47686, 48769, 49572,
+                   50221, 52161, 52917, 54115, 54613,
+                   55473, 55816, 56809, 57265, 58525)
+  N <- 8.399e6
+  R <- RI_complete / N
+  
+  Y <- NI_complete / N - R 
+
+  change_time <- c("04/29/2020")
+  alpha0 <- c(0.2) # 20% of the susceptible population were found immunized
+  res.antibody <- eSAIR(Y, R, begin_str = "03/01/2020",
+                    alpha0 = alpha0, change_time = change_time,
+                    casename = "New_York_antibody", save_files = F, 
+                    save_mcmc = F, M=5e2, nburnin = 2e2)
+  res.antibody$plot_infection
+
+
+```
