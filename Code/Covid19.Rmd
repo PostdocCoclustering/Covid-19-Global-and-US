@@ -9,7 +9,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "C:/Users/Gabriel/Documents/Coclustering/Covid-19 project_Gobal")
+knitr::opts_knit$set(root.dir = "C:/Users/Gabriel/Documents/GitHub/Projects/Covid-19/Code")
 ```
 
 ## R Markdown
@@ -18,8 +18,7 @@ This is an R Markdown document analyzing global Covid-19 data.
 
 ```{r, include=FALSE}
 # working directory and packages
-
-setwd("C:/Users/Gabriel/Documents/Coclustering/Covid-19 project_Gobal")
+setwd("C:/Users/Gabriel/Documents/GitHub/Projects/Covid-19/Code")
 path <- getwd()
 
 # install / load packages
@@ -34,16 +33,23 @@ install_github("lilywang1988/eSIR")
 library(eSIR)
 
 # Calendar plot function
-source(file = paste0(path,"/Code/CalendarFunction.R"))
+source(file = paste0(path,"/CalendarFunction.R"))
+
+# Arrays function
+source(file = paste0(path,"/ArrayFunctions.R"))
 ```
 
 ## Load data
 
 ```{r}
-# load & transform data 
+# load & transform data
+
+# Global data
 covid19df <- covid19()
 
-#load(file = paste0(path,"/Data/time_series_covid19_confirmed_global.RData"))
+# US data
+covid19df_US <- covid19(country = "USA")
+
 ```
 
 Lets start with defining the data matrix by removing everything that is not cases and start counting from March 9th. The countries are listed on the rows, and on the dates are spread across the columns.
@@ -52,6 +58,7 @@ Lets start with defining the data matrix by removing everything that is not case
 
 # Turn dataframe into wide format
 
+### Global
 # Cases
 A_cases <- as.data.frame(covid19df[,c(1,2,4)])
 A_cases_wide <- pivot_wider(A_cases, names_from = date, values_from = confirmed)
@@ -64,133 +71,49 @@ A_deaths_wide <- pivot_wider(A_deaths, names_from = date, values_from = deaths)
 A_rec <- as.data.frame(covid19df[,c(1,2,5)])
 A_rec_wide <- pivot_wider(A_rec, names_from = date, values_from = recovered)
 
-```
 
-Next we create a matrix for weeks, where the countries are spread along the rows
-and each column is the sum of the last seven days. There are 266 countries and 12 weeks in the data set, so the matrix will be of dimension 266x12.  
+### US
+A_cases_US <- as.data.frame(covid19df_US[,c(1,2,4)])
+A_cases_wide_US <- pivot_wider(A_cases_US, names_from = date, values_from =
+                                 confirmed)
 
-```{r, inlcude=FALSE}
-
-# Gather all Mondays, Tuesdays,... and so on in separate vectors
-# Cases:
-MondayCases <- A_cases_wide[,c(56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126,
-                               133, 140, 147, 154, 161, 168)]
-
-TuesdayCases <- A_cases_wide[,c((56+1), (63+1), (70+1), (77+1), (84+1), (91+1),
-                                (98+1), (105+1), (112+1), (119+1), (126+1),
-                                (133+1), (140+1), (147+1), (154+1), (161+1), 
-                                (168+1))]
-
-WednesdayCases <- A_cases_wide[,c((56+2), (63+2), (70+2), (77+2), (84+2), (91+2),
-                                (98+2), (105+2), (112+2), (119+2), (126+2),
-                                (133+2), (140+2), (147+2), (154+2), (161+2), 
-                                (168+2))]
-
-ThursdayCases <- A_cases_wide[,c((56+3), (63+3), (70+3), (77+3), (84+3), (91+3),
-                                (98+3), (105+3), (112+3), (119+3), (126+3),
-                                (133+3), (140+3), (147+3), (154+3), (161+3), 
-                                (168+3))]
-
-FridayCases <- A_cases_wide[,c((56+4), (63+4), (70+4), (77+4), (84+4), (91+4),
-                                (98+4), (105+4), (112+4), (119+4), (126+4),
-                                (133+4), (140+4), (147+4), (154+4), (161+4), 
-                                (168+4))]
-
-SaturdayCases <- A_cases_wide[,c((56+5), (63+5), (70+5), (77+5), (84+5), (91+5),
-                                (98+5), (105+5), (112+5), (119+5), (126+5),
-                                (133+5), (140+5), (147+5), (154+5), (161+5), 
-                                (168+5))]
-
-SundayCases <- A_cases_wide[,c((56+6), (63+6), (70+6), (77+6), (84+6), (91+6),
-                                (98+6), (105+6), (112+6), (119+6), (126+6),
-                                (133+6), (140+6), (147+6), (154+6), (161+6), 
-                                (168+6))]
-
-# Deaths:
-MondayDeaths <- A_deaths_wide[,c(56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126,
-                               133, 140, 147, 154, 161, 168)]
-
-TuesdayDeaths <- A_deaths_wide[,c((56+1), (63+1), (70+1), (77+1), (84+1), (91+1),
-                                (98+1), (105+1), (112+1), (119+1), (126+1),
-                                (133+1), (140+1), (147+1), (154+1), (161+1), 
-                                (168+1))]
-
-WednesdayDeaths <- A_deaths_wide[,c((56+2), (63+2), (70+2), (77+2), (84+2),
-                                    (91+2), (98+2), (105+2), (112+2), (119+2),
-                                    (126+2), (133+2), (140+2), (147+2), (154+2),
-                                    (161+2), (168+2))]
-
-ThursdayDeaths <- A_deaths_wide[,c((56+3), (63+3), (70+3), (77+3), (84+3),
-                                   (91+3), (98+3), (105+3), (112+3), (119+3),
-                                   (126+3), (133+3), (140+3), (147+3), (154+3),
-                                    (161+3), (168+3))]
-
-FridayDeaths <- A_deaths_wide[,c((56+4), (63+4), (70+4), (77+4), (84+4), (91+4),
-                                (98+4), (105+4), (112+4), (119+4), (126+4),
-                                (133+4), (140+4), (147+4), (154+4), (161+4),
-                                (168+4))]
-
-SaturdayDeaths <- A_deaths_wide[,c((56+5), (63+5), (70+5), (77+5), (84+5),
-                                   (91+5), (98+5), (105+5), (112+5), (119+5),
-                                   (126+5), (133+5), (140+5), (147+5), (154+5),
-                                   (161+5), (168+5))]
-
-SundayDeaths <- A_deaths_wide[,c((56+6), (63+6), (70+6), (77+6), (84+6), (91+6),
-                                (98+6), (105+6), (112+6), (119+6), (126+6),
-                                (133+6), (140+6), (147+6), (154+6), (161+6),
-                                (168+6))]
-
+# Deaths
+A_deaths_US <- as.data.frame(covid19df_US[,c(1,2,6)])
+A_deaths_wide_US <- pivot_wider(A_deaths_US, names_from = date, values_from =
+                                  deaths)
 
 # Recovered
-MondayRec <- A_rec_wide[,c(56, 63, 70, 77, 84, 91, 98, 105, 112, 119, 126,
-                               133, 140, 147, 154, 161, 168)]
+A_rec_US <- as.data.frame(covid19df_US[,c(1,2,5)])
+A_rec_wide_US <- pivot_wider(A_rec_US, names_from = date, values_from =
+                               recovered)
 
-TuesdayRec <- A_rec_wide[,c((56+1), (63+1), (70+1), (77+1), (84+1), (91+1),
-                                (98+1), (105+1), (112+1), (119+1), (126+1),
-                                (133+1), (140+1), (147+1), (154+1), (161+1), 
-                                (168+1))]
 
-WednesdayRec <- A_rec_wide[,c((56+2), (63+2), (70+2), (77+2), (84+2),
-                                    (91+2), (98+2), (105+2), (112+2), (119+2),
-                                    (126+2), (133+2), (140+2), (147+2), (154+2),
-                                    (161+2), (168+2))]
+```
 
-ThursdayRec <- A_rec_wide[,c((56+3), (63+3), (70+3), (77+3), (84+3),
-                                   (91+3), (98+3), (105+3), (112+3), (119+3),
-                                   (126+3), (133+3), (140+3), (147+3), (154+3),
-                                    (161+3), (168+3))]
+Next we create arrays for cases, deaths and recovered to be used in the funLBM function. They will contain as many matrix slices as there are weeks analyzed (we start our analysis of the Covid-19 outbreak on March 9). Each matrix will be of dimension ("number of countries" x 7). 
 
-FridayRec <- A_rec_wide[,c((56+4), (63+4), (70+4), (77+4), (84+4), (91+4),
-                                (98+4), (105+4), (112+4), (119+4), (126+4),
-                                (133+4), (140+4), (147+4), (154+4), (161+4),
-                                (168+4))]
+```{r, include=FALSE}
 
-SaturdayRec <- A_rec_wide[,c((56+5), (63+5), (70+5), (77+5), (84+5),
-                                   (91+5), (98+5), (105+5), (112+5), (119+5),
-                                   (126+5), (133+5), (140+5), (147+5), (154+5),
-                                   (161+5), (168+5))]
+### Global
+# Cases:
+cases_array <- ArrayCases(firstday = 60, df = A_cases_wide, numbreg = 266) 
+dim(cases_array) # dim = number of countries x number of weeks x 7 days
+# Deaths:
+deaths_array <- ArrayDeaths(firstday = 60, df = A_deaths_wide, numbreg = 266) 
 
-SundayRec <- A_rec_wide[,c((56+6), (63+6), (70+6), (77+6), (84+6), (91+6),
-                                (98+6), (105+6), (112+6), (119+6), (126+6),
-                                (133+6), (140+6), (147+6), (154+6), (161+6),
-                                (168+6))]
+# Recovered
+rec_array <- ArrayRecovered(firstday = 60, df = A_rec_wide, numbreg = 266) 
 
-# Create array of the dataframes:
-cases_array <- array(c(unlist(MondayCases), unlist(TuesdayCases), 
-                         unlist(WednesdayCases), unlist(ThursdayCases), 
-                         unlist(FridayCases), unlist(SaturdayCases),
-                         unlist(SundayCases)), c(266, 17, 7))
-# c(266, 17, 7) = number of countries, number weeks, number of days in a week
 
-deaths_array <- array(c(unlist(MondayDeaths), unlist(TuesdayDeaths), 
-                         unlist(WednesdayDeaths), unlist(ThursdayDeaths), 
-                         unlist(FridayDeaths), unlist(SaturdayDeaths),
-                         unlist(SundayDeaths)), c(266, 17, 7))
+### US
+cases_array_US <- ArrayCases(firstday = 60, df = A_cases_wide_US, numbreg = 266) 
+dim(cases_array_US)
+# Deaths:
+deaths_array_US <- ArrayDeaths(firstday = 60, df = A_deaths_wide_US, numbreg =
+                                 266) 
 
-rec_array <- array(c(unlist(MondayRec), unlist(TuesdayRec), 
-                         unlist(WednesdayRec), unlist(ThursdayRec), 
-                         unlist(FridayRec), unlist(SaturdayRec),
-                         unlist(SundayRec)), c(266, 17, 7))
+# Recovered
+rec_array_US <- ArrayRecovered(firstday = 60, df = A_rec_wide_US, numbreg = 266) 
 
 ```
 
@@ -198,6 +121,7 @@ We can now perform co-clustering. We start by co-clustering considering cases, d
 
 ```{r}
 
+### Global
 # Univariate co-clustering of 'cases':
 CoClust_cases <- funLBM(cases_array, K=2:20,L=2:20,
        basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
@@ -229,11 +153,48 @@ plot(CoClust_rec, type='blocks', ylim = c(0, 1750000))
 plot(CoClust_rec, type='proportions')
 plot(CoClust_rec, type='means')
 
+
+#---------------------------------------------------------------------#
+
+### US
+# Univariate co-clustering of 'cases':
+CoClust_cases_US <- funLBM(cases_array_US, K=2:20,L=2:20,
+       basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
+
+### Plotting the results:
+plot(CoClust_cases_US, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_cases_US, type='proportions')
+plot(CoClust_cases_US, type='means')
+
+
+
+# Univariate co-clustering of 'deaths':
+CoClust_deaths_US <- funLBM(deaths_array_US, K=2:15,L=2:15,
+       basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
+
+### Plotting the results:
+plot(CoClust_deaths_US, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_deaths_US, type='proportions')
+plot(CoClust_deaths_US, type='means')
+
+
+
+# Univariate co-clustering of 'recovered':
+CoClust_rec_US <- funLBM(rec_array_US, K=2:15,L=2:15,
+       basis.name = "fourier", nbasis=6, init="kmeans", mc.cores = 4)  
+
+### Plotting the results:
+plot(CoClust_rec_US, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_rec_US, type='proportions')
+plot(CoClust_rec_US, type='means')
+
 ```
 
 Next we consider cases and deaths simultaneously in a multivariate function. 
 
 ```{r}
+
+### Global
 # Create array containing both cases and deaths for all weeks under study:
 multivariate_array <- list("data1" = cases_array, "data2" = deaths_array)
 
@@ -266,6 +227,45 @@ CoClust_multi2 <- funLBM(list(multivariate_array2$data1,
 plot(CoClust_multi2, type='blocks', ylim = c(0, 1750000)) 
 plot(CoClust_multi2, type='proportions')
 plot(CoClust_multi2, type='means')
+
+
+
+### US
+# Create array containing both cases and deaths for all weeks under study:
+multivariate_array_US <- list("data1" = cases_array_US, "data2" =
+                                deaths_array_US)
+
+# Create array containing cases, deaths and recovered for all weeks under study:
+multivariate_array2_US <- list("data1" = cases_array_US, "data2" =
+                                 deaths_array_US, "data3" = rec_array_US)
+
+set.seed(333)
+## Co-clustering multivariate function:
+CoClust_multi_US <- funLBM(list(multivariate_array_US$data1,
+                                   multivariate_array_US$data2), K=2:15,L=2:15,
+                                   basis.name = "fourier", nbasis=6, 
+                                   init="kmeans", mc.cores = 3) 
+
+### Plotting the results:
+plot(CoClust_multi_US, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_multi_US, type='proportions')
+plot(CoClust_multi_US, type='means')
+
+
+
+## Co-clustering multivariate function number 2:
+CoClust_multi2_US <- funLBM(list(multivariate_array2_US$data1,
+                                   multivariate_array2_US$data2,
+                                   multivariate_array2_US$data3), K=2:10,L=2:10,
+                                   basis.name = "fourier", nbasis=6, 
+                                   init="kmeans", mc.cores = 3) 
+
+### Plotting the results:
+plot(CoClust_multi2_US, type='blocks', ylim = c(0, 1750000)) 
+plot(CoClust_multi2_US, type='proportions')
+plot(CoClust_multi2_US, type='means')
+
+
 ```
 
 Next we make some trajectory plots.
@@ -307,7 +307,7 @@ cases_graph +
 Next lets make a map.
 
 ```{r}
-
+### Global
 colors <-brewer.pal(12 , "Paired")
 
 # Cases
@@ -321,16 +321,31 @@ map(database = "world", fill = T, col = colors[CoClust_multi$row_clust])
 
 # Cases, deaths and recovered:
 map(database = "world", fill = T, col = colors[CoClust_multi2$row_clust])
+
+
+### US
+# Cases
+map(database = "world", fill = T, col = colors[CoClust_cases_US$row_clust])
+
+# Deaths
+map(database = "world", fill = T, col = colors[CoClust_deaths_US$row_clust])
+
+# Cases and deaths:
+map(database = "world", fill = T, col = colors[CoClust_multi_US$row_clust])
+
+# Cases, deaths and recovered:
+map(database = "world", fill = T, col = colors[CoClust_multi2_US$row_clust])
+
 ```
 
 
-We make a calendar plot
+We make a calendar plot.
 
 ```{r}
-
+### Global
 # Geographical plot
 day1 = '2020-03-09'
-lastday = '2020-07-05'
+lastday = '2020-07-26'
 dates = seq(as.Date(day1), as.Date(lastday), by = 'day')
 
 # Calendar plot for cases:
@@ -358,6 +373,32 @@ df_multi2 = data.frame(dates, counts = cls_multi2)
 
 plot.calendar(df_multi2)
 
+
+### US 
+# Calendar plot for cases:
+cls_cases_US = rep(CoClust_cases_US$col_clust, each = 7)
+df_cases_US = data.frame(dates, counts = cls_cases_US)
+
+plot.calendar(df_cases_US)
+
+# Calendar plot for deaths:
+cls_deaths_US = rep(CoClust_deaths_US$col_clust, each = 7)
+df_deaths_US = data.frame(dates, counts = cls_deaths_US)
+
+plot.calendar(df_deaths_US)
+
+# Calendar plot for cases and deaths (multivariate):
+cls_multi_US = rep(CoClust_multi_US$col_clust, each = 7)
+df_multi_US = data.frame(dates, counts = cls_multi_US)
+
+plot.calendar(df_multi_US)
+
+
+# Calendar plot for cases, deaths and recovered (multivariate):
+cls_multi2_US = rep(CoClust_multi2_US$col_clust, each = 7)
+df_multi2_US = data.frame(dates, counts = cls_multi2_US)
+
+plot.calendar(df_multi2_US)
 
 ```
 
