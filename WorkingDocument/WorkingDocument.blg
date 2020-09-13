@@ -1,0 +1,29 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is 'WorkingDocument.blg'
+[148] biber-MSWIN64:322> INFO - === 
+[196] Biber.pm:415> INFO - Reading 'WorkingDocument.bcf'
+[465] Biber.pm:943> INFO - Found 11 citekeys in bib section 0
+[509] Biber.pm:4256> INFO - Processing section 0
+[510] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
+[532] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
+[573] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[582] bibtex.pm:1653> INFO - LaTeX decoding ...
+[664] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
+[841] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[841] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[842] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[843] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[843] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[906] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[906] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[906] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[907] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[939] bbl.pm:652> INFO - Writing 'WorkingDocument.bbl' with encoding 'latin1'
+[961] bbl.pm:755> INFO - Output to WorkingDocument.bbl
+[971] Biber.pm:128> INFO - WARNINGS: 11
