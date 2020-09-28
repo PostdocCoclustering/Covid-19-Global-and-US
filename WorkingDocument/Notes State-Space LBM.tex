@@ -7,7 +7,7 @@
 \usepackage{graphicx}
 \usepackage{tikz}
 \usepackage{float}
-\DeclareMathOperator*{\argmax}{arg\,max}
+\usepackage{tikz-cd}
 
 \usepackage[backend = biber, style=authoryear]{biblatex}
 \addbibresource{bibliography.bib}
@@ -148,6 +148,28 @@ $
 \boldsymbol{\tau} = (\alpha, \beta, \rho, \pi, \mathbf{\theta}, \lambda, \kappa)^\top.
 $
 %
+
+The SIR model can thus be graphically summarized as 
+
+\begin{tikzcd}[nodes in empty cells]
+	\text{Markov process:}
+	&   \boldsymbol{\theta}_0
+	&   \boldsymbol{\theta}_1 \ar[dd]
+	&   \boldsymbol{\theta}_2  \ar[dd]
+	&   \dots  
+	&   \boldsymbol{\theta}_{T-1} \ar[dd]       \\
+	&   \arrow[rrrr, dashed, -,
+	start anchor={[shift={(-3ex,2ex)}]north west},
+	end anchor  ={[shift={( 3ex,2ex)}]north east}]
+	&   &   &   &   &                               \\
+	\text{Observations:}
+	&   \mathbf{y}_0
+	&   \mathbf{y}_1
+	&   \mathbf{y}_2
+	&   \dotsm
+	&   \mathbf{y}_{T-1}           \\
+\end{tikzcd}
+
 \section{Latent Block Model}
 For the latent block model (LBM; \cite{govaert2003clustering}), we define the binary matrices $Z_{ik}$, $k = 1,..., K$ and $W_{jl}$, $l = 1,..., L$, which denote random variables such that $z_{ik} = 1$ if case $i$ belongs to row cluster $k$, and $w_{jl} = 1$ if feature $j$ belongs to column cluster $l$. Co-clustering will yield subgroups, called blocks, such that $z_{ik} w_{jl} = 1$. It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$.
 
@@ -262,11 +284,7 @@ We would thus be able to graphically represent the model as
 		\path (beta) edge [connect] (W);
 		
 		\path (kappa) edge [connect] (theta);
-		
-		%\node[rectangle, inner sep=0mm, fit= (z) (w),label=below right:N, xshift=13mm] {};
-		%\node[rectangle, inner sep=4.4mm,draw=black!100, fit= (z) (w)] {};
-		%\node[rectangle, inner sep=4.6mm, fit= (z) (w),label=below right:M, xshift=12.5mm] {};
-		%\node[rectangle, inner sep=9mm, draw=black!100, fit = (theta) (z) (w)] {};
+
 	\end{tikzpicture}
 \end{figure}
 
