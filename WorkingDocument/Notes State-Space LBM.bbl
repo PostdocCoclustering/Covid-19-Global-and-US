@@ -1,0 +1,277 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{govaert2003clustering}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5dbd99c49ebc046dee294b4d416a1850}{%
+           family={Govaert},
+           familyi={G\bibinitperiod},
+           given={G{é}rard},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6bc7c3c64d6c8adfb8e4a1479f69e37}{%
+           family={Nadif},
+           familyi={N\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{fullhash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{bibnamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{authorbibnamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{authornamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{authorfullhash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Pattern Recognition}
+      \field{number}{2}
+      \field{title}{Clustering with block mixture models}
+      \field{volume}{36}
+      \field{year}{2003}
+      \field{pages}{463\bibrangedash 473}
+      \range{pages}{11}
+    \endentry
+    \entry{keribin2015estimation}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=75fed0fb206602c465b88669b01321a8}{%
+           family={Keribin},
+           familyi={K\bibinitperiod},
+           given={Christine},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c910cc488b9acda12332e8ccfdadbe64}{%
+           family={Brault},
+           familyi={B\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9133f7f17c8668427ccdc050da81724e}{%
+           family={Celeux},
+           familyi={C\bibinitperiod},
+           given={Gilles},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5dbd99c49ebc046dee294b4d416a1850}{%
+           family={Govaert},
+           familyi={G\bibinitperiod},
+           given={G{é}rard},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3ec70c4748c97c2868431e6a9b361258}
+      \strng{fullhash}{8d7513299b85a1925a7cf56edf6b9e8d}
+      \strng{bibnamehash}{3ec70c4748c97c2868431e6a9b361258}
+      \strng{authorbibnamehash}{3ec70c4748c97c2868431e6a9b361258}
+      \strng{authornamehash}{3ec70c4748c97c2868431e6a9b361258}
+      \strng{authorfullhash}{8d7513299b85a1925a7cf56edf6b9e8d}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Statistics and Computing}
+      \field{number}{6}
+      \field{title}{Estimation and selection for the latent block model on categorical data}
+      \field{volume}{25}
+      \field{year}{2015}
+      \field{pages}{1201\bibrangedash 1216}
+      \range{pages}{16}
+    \endentry
+    \entry{kermack1927contribution}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a59aa6e9308e1e3bba57fdedf5dc8c7b}{%
+           family={Kermack},
+           familyi={K\bibinitperiod},
+           given={William\bibnamedelima Ogilvy},
+           giveni={W\bibinitperiod\bibinitdelim O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=249d98aae1ad3deaeb51e4cf716bd1f7}{%
+           family={McKendrick},
+           familyi={M\bibinitperiod},
+           given={Anderson\bibnamedelima G},
+           giveni={A\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {The Royal Society London}%
+      }
+      \strng{namehash}{438ba327e51494468ee4a8d771e29321}
+      \strng{fullhash}{438ba327e51494468ee4a8d771e29321}
+      \strng{bibnamehash}{438ba327e51494468ee4a8d771e29321}
+      \strng{authorbibnamehash}{438ba327e51494468ee4a8d771e29321}
+      \strng{authornamehash}{438ba327e51494468ee4a8d771e29321}
+      \strng{authorfullhash}{438ba327e51494468ee4a8d771e29321}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the royal society of london. Series A, Containing papers of a mathematical and physical character}
+      \field{number}{772}
+      \field{title}{A contribution to the mathematical theory of epidemics}
+      \field{volume}{115}
+      \field{year}{1927}
+      \field{pages}{700\bibrangedash 721}
+      \range{pages}{22}
+    \endentry
+    \entry{osthus2017forecasting}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=95651d480f49bec18f0c6a6a8d257b35}{%
+           family={Osthus},
+           familyi={O\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b2b60f5b75c80072e69941d45c6f4873}{%
+           family={Hickmann},
+           familyi={H\bibinitperiod},
+           given={Kyle\bibnamedelima S},
+           giveni={K\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=850ac1d790872b2b2bc3fb39482de0fa}{%
+           family={Caragea},
+           familyi={C\bibinitperiod},
+           given={Petru{ţ}a\bibnamedelima C},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=4ad9551063903017904d2b73bffcba71}{%
+           family={Higdon},
+           familyi={H\bibinitperiod},
+           given={Dave},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8bf2f939fb74789e79314109830baa94}{%
+           family={Del\bibnamedelima Valle},
+           familyi={D\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={Sara\bibnamedelima Y},
+           giveni={S\bibinitperiod\bibinitdelim Y\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {NIH Public Access}%
+      }
+      \strng{namehash}{625bace14e6cee6fe0c6f6f289ec9bfc}
+      \strng{fullhash}{ec8a3ffe2d21f213fd78447096295400}
+      \strng{bibnamehash}{625bace14e6cee6fe0c6f6f289ec9bfc}
+      \strng{authorbibnamehash}{625bace14e6cee6fe0c6f6f289ec9bfc}
+      \strng{authornamehash}{625bace14e6cee6fe0c6f6f289ec9bfc}
+      \strng{authorfullhash}{ec8a3ffe2d21f213fd78447096295400}
+      \field{sortinit}{O}
+      \field{sortinithash}{ff8d4eeb5101e3cf3809959b3592d942}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The annals of applied statistics}
+      \field{number}{1}
+      \field{title}{Forecasting seasonal influenza with a state-space SIR model}
+      \field{volume}{11}
+      \field{year}{2017}
+      \field{pages}{202}
+      \range{pages}{1}
+    \endentry
+    \entry{song2020epidemiological}{article}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=b7fa5adcbf1ed683de5039928a01545f}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Peter\bibnamedelima X},
+           giveni={P\bibinitperiod\bibinitdelim X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=55a96589f628c36984e2904ab308c607}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Lili},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5fc77f8cecbe14b43d6a90c3d4b4056c}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Yiwang},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=23b501650b17f341ebc0b12905086fb5}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Jie},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fa59ea0abcbda49f67672e89de64b43}{%
+           family={Zhu},
+           familyi={Z\bibinitperiod},
+           given={Bin},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=60af9bc009f709103e587bb92cee1cda}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c36927bf64b864e6b32d5be5a8525b94}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=42197ca3ee858c832e865a48ff190912}{%
+           family={Eisenberg},
+           familyi={E\bibinitperiod},
+           given={Marisa},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Cold Spring Harbor Laboratory Press}%
+      }
+      \strng{namehash}{7b688141ab7f2cf7cd526900e324beea}
+      \strng{fullhash}{21a49f3c2ad15cdb96f2681863b83ada}
+      \strng{bibnamehash}{7b688141ab7f2cf7cd526900e324beea}
+      \strng{authorbibnamehash}{7b688141ab7f2cf7cd526900e324beea}
+      \strng{authornamehash}{7b688141ab7f2cf7cd526900e324beea}
+      \strng{authorfullhash}{21a49f3c2ad15cdb96f2681863b83ada}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{MedRxiv}
+      \field{title}{An epidemiological forecast model and software assessing interventions on COVID-19 epidemic in China}
+      \field{year}{2020}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
