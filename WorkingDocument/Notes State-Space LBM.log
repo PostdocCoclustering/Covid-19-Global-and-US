@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  2 OCT 2020 04:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  5 OCT 2020 16:58
 entering extended mode
 **"./Notes State-Space LBM.tex"
 ("Notes State-Space LBM.tex"
@@ -870,19 +870,23 @@ Overfull \hbox (10.87091pt too wide) in paragraph at lines 171--172
 [][] 
  []
 
-[2] [3] [4] ("Notes State-Space LBM.aux")
+[2] [3] [4] [5] ("Notes State-Space LBM.aux")
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
 \openout1 = `"Notes State-Space LBM.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21682 strings out of 481568
- 440436 string characters out of 2913334
- 1034424 words of memory out of 3000000
- 36569 multiletter control sequences out of 15000+200000
+ 21683 strings out of 481568
+ 440448 string characters out of 2913334
+ 1032433 words of memory out of 3000000
+ 36570 multiletter control sequences out of 15000+200000
  547497 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,17n,84p,1099b,1391s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,17n,84p,1280b,1391s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
@@ -904,9 +908,9 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Gabriel/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G
 abriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.p
 fb>
-Output written on "Notes State-Space LBM.pdf" (4 pages, 187664 bytes).
+Output written on "Notes State-Space LBM.pdf" (5 pages, 192718 bytes).
 PDF statistics:
- 240 PDF objects out of 1000 (max. 8388607)
+ 245 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
