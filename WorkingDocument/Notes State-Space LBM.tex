@@ -9,6 +9,14 @@
 \usepackage{float}
 \usepackage{tikz-cd}
 
+
+\usetikzlibrary{calc,arrows.meta,positioning}
+
+\tikzset{
+	every node/.style={font=\sffamily\small},
+	main node/.style={thick,circle,draw,font=\sffamily\Large}
+}
+
 \usepackage[backend = biber, style=authoryear]{biblatex}
 \addbibresource{bibliography.bib}
 
@@ -20,26 +28,26 @@
 \begin{document}
 \maketitle
 
-\section{SIR model}
+\section{The Extended SIR model}
 To specify the State-Space Latent Block Model (SS-LBM), we introduce the following notation: 
 %
 $
-\mathbf{y} = (\mathbf{y}_{ij}, i = 1, \ldots, n; j = 1, \ldots d) 
+\mathbf{y} = (\mathbf{y}_{it}, i = 1, \ldots, n; t = 1, \ldots T) 
 $
 %
-denotes the data matrix. Each element in $\mathbf{y}_{ij}$ is a multivariate time series:  
+denotes the data matrix which is a multivariate time series:  
 %
 $
-\mathbf{y}_{ij} = (y_{ij}^1(t), \ldots, y_{ij}^S(t))
+\mathbf{y}_{it} = (y_{i}^1(t), \ldots, y_{i}^S(t))
 $ 
 %
 where $t \in [0, T]$. In the context of analyzing the 2020 coronavirus pandemic, 
 %
 $
-\mathbf{y}_{ij} = (y_{ij}^I(t), y_{ij}^R(t))^\top
+\mathbf{y}_{it} = (y_{i}^I(t), y_{i}^R(t))^\top
 $
 %
-where $y_{ij}^I(t)$ and $y_{ij}^R(t)$ denote the proportion of infected and removed (recovered or dead) by the virus, respectively, at time point $t$. Further, let  
+where $y_{i}^I(t)$ and $y_{i}^R(t)$ denote the proportion of infected and removed (recovered or dead) by the virus, respectively, at time point $t$. Further, let  
 %
 $
 \boldsymbol{\theta} = (\theta_t^S, \theta_t^I, \theta_t^R)^\top,
@@ -62,16 +70,16 @@ Specifically, we assume the following model for $\boldsymbol{\theta}$:
 $$
 \boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\theta_{t-1}^S), \kappa f(\theta_{t-1}^I), \kappa f(\theta_{t-1}^R)),
 $$
-where $\kappa$ scales the variance of the Dirichlet distribution, and the function $f(\cdot)$ is a 3-dimensional vector that sets the mean of the Dirichlet distribution.
+where $\boldsymbol{\Omega}_1$ denotes the set of model parameters, $\kappa$ scales the variance of the Dirichlet distribution, and the function $f(\cdot)$ is a 3-dimensional vector that sets the mean of the Dirichlet distribution.
 %
 
 The function $f$ is the solution to the following dynamic system:
 %
 \begin{equation}\label{SIR}
-	\frac{d\theta_t^S}{dt} = -\rho\theta_t^S\theta_t^I, \quad \frac{d\theta_t^I}{dt} = \rho\theta_t^S\theta_t^I - \pi \theta_t^I, \quad \frac{d\theta_t^R}{dt} = \pi \theta_t^I,
+	\frac{d\theta_t^S}{dt} = -\rho\pi(t)\theta_t^S\theta_t^I, \quad \frac{d\theta_t^I}{dt} = \rho\pi(t)\theta_t^S\theta_t^I - \gamma \theta_t^I, \quad \frac{d\theta_t^R}{dt} = \gamma \theta_t^I,
 \end{equation}
 %
-where $\rho > 0$ is the transmission rate of the disease and $\pi > 0$ is the rate of recovery. This system of non-linear ordinary differential equations is within the field of epidemiology known as the SIR model \parencite{kermack1927contribution}. Since there are no explicit solutions available to (\ref{SIR}), the so-called fourth-order Runge-Kutta approximation is implemented, meaning that 
+where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The term $\pi(t)$ is a transmission modifier equal to $\pi(t) = (1-q^S(t))(1-q^I(t))$, where $q^S(t)$ denotes the probability of an susceptible person being in-home isolation, and $q^I(t)$ the probability of an infected person being in-hospital quarantine. The term $\pi(t)$ is a transmission modifier in the sense that it modifies the probability of a susceptible person getting in contact with an infected person. If a geographical region does not impose a quarantine, $\pi(t)=1$, and the dynamic system in \ref{SIR} reduces to the clasic formulation of the SIR model \parencite{kermack1927contribution}. We are however considering the extended version, for which the $\pi(t)$ term is included. Since there are no explicit solutions available to (\ref{SIR}), the so-called fourth-order Runge-Kutta approximation is implemented, meaning that 
 %
 $$
 \begin{aligned}
@@ -107,11 +115,11 @@ where
 %
 \begin{equation*}
 	\begin{split}	
-		k_{t-1}^{\theta^I_1} &= \rho \theta_{t-1}^S \theta_{t-1}^I - \pi \theta^I_{t-1}, \\
+		k_{t-1}^{\theta^I_1} &= \rho \theta_{t-1}^S \theta_{t-1}^I - \gamma \theta^I_{t-1}, \\
 		%
-		k_{t-1}^{\theta^I_2} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_1}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}] - \pi[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
+		k_{t-1}^{\theta^I_2} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_1}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}] - \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
 		%
-		k_{t-1}^{\theta^I_3} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_2}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}] - \pi[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
+		k_{t-1}^{\theta^I_3} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_2}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}] - \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
 		%
 		k_{t-1}^{\theta^I_4} &= \rho [\theta_{t-1}^S + k_{t-1}^{\theta^S_3}] [\theta_{t-1}^I + k_{t-1}^{\theta^I_3}] - \pi[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}], 
 	\end{split}
@@ -121,57 +129,125 @@ and
 %
 \begin{equation*}
 	\begin{split}	
-		k_{t-1}^{\theta^R_1} &= \pi \theta^I_{t-1}, \\
+		k_{t-1}^{\theta^R_1} &= \gamma \theta^I_{t-1}, \\
 		%
-		k_{t-1}^{\theta^R_2} &= \pi[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
+		k_{t-1}^{\theta^R_2} &= \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
 		%
-		k_{t-1}^{\theta^R_3} &= \pi[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
+		k_{t-1}^{\theta^R_3} &= \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
 		%
-		k_{t-1}^{\theta^R_4} &= \pi[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}]. 
+		k_{t-1}^{\theta^R_4} &= \gamma[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}]. 
 	\end{split}
 \end{equation*}
 %
 
-Lastly, for the data $\mathbf{y}$  we follow \parencite{song2020epidemiological} and assume the following state-space model,  
+Lastly, for the data $\mathbf{y}$  we follow \parencite{song2020epidemiological} and make the following distributional assumptions,  
 %
 \begin{equation}\label{statespace}
 \begin{aligned}
-	y_{ij}^I | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_t^I, \lambda^I(1 - \theta_t^I)) \\
+	y_{i}^I(t) | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_t^I, \lambda^I(1 - \theta_t^I)) \\
 	%
-	y_{ij}^R | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_t^R, \lambda^R(1 - \theta_t^R)
+	y_{i}^R(t) | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_t^R, \lambda^R(1 - \theta_t^R)
 \end{aligned}
 \end{equation}
 %
 where 
 %
 $
-\boldsymbol{\Omega}_1 = (\rho, \pi, \mathbf{\theta}, \lambda, \kappa)^\top.
+\boldsymbol{\Omega}_1 = (\rho, \gamma, \mathbf{\theta}, \lambda, \kappa)^\top.
 $
 %
+We consequently have a state-space formulation of the considered model, where $\boldsymbol{\theta}$ is the underlying, latent process that guides the observed data $(y_i^I(t), y_i^R(t))$. This state-space extended SIR model can be graphically summarized as
 
-The SIR model can thus be graphically summarized as 
 
-\begin{tikzcd}[nodes in empty cells]
-	\text{Markov process:}
-	&   \boldsymbol{\theta}_0
-	&   \boldsymbol{\theta}_1 \ar[dd]
-	&   \boldsymbol{\theta}_2  \ar[dd]
-	&   \dots  
-	&   \boldsymbol{\theta}_{T-1} \ar[dd]       \\
-	&   \arrow[rrrr, dashed, -,
-	start anchor={[shift={(-3ex,2ex)}]north west},
-	end anchor  ={[shift={( 3ex,2ex)}]north east}]
-	&   &   &   &   &                               \\
-	\text{Observations:}
-	&   \mathbf{y}_0
-	&   \mathbf{y}_1
-	&   \mathbf{y}_2
-	&   \dotsm
-	&   \mathbf{y}_{T-1}           \\
-\end{tikzcd}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+		\tikzstyle{connect}=[-latex, thick]
+		%\tikzstyle{box}=[rectangle, draw=black!100]
+		\node[ fill = white!100] (kappa) {$\kappa$};
+		\node[main] (T) [right=of kappa] {$\mathcal{T}_t$};
+		
+		\node[] (lambda) [below=of kappa] {$\lambda$};
+		\node[main] (O) [right=of lambda] {$\mathcal{O}_t$};
+		
+		\node[main] (theta0) [right=of T] {$\boldsymbol{\theta}_0$};
+		\node[main] (theta1) [right=of theta0] {$\boldsymbol{\theta}_1$};
+		\node[main] (theta2) [right=of theta1] {$\boldsymbol{\theta}_2$};
+		\node[main] (thetaT) [right=of theta2] {$\boldsymbol{\theta}_T$};
+		
+		\node[main, fill = gray!25] (y1) [below=of theta1] {$\mathbf{y}_1$};
+		\node[main, fill = gray!25] (y2) [right=of y1] {$\mathbf{y}_2$};
+		\node[main, fill = gray!25] (yT) [right=of y2] {$\mathbf{y}_T$};
+		
+		
+		\path (kappa) edge [connect] (T);
+		\path (lambda) edge [connect] (O);
+			
+		\path (T) edge [connect] (theta0);
+		
+		\path (theta0) edge [connect] (theta1);
+		\path (theta1) edge [connect] (theta2);
+		
+		\path (theta1) edge [connect] (y1);
+		\path (theta2) edge [connect] (y2);
+		\path (thetaT) edge [connect] (yT);
+		
+		\node[] (dots) [right=of theta2]{\ldots};
+		\node[] (dotsy) [right=of y2]{\ldots};
+		
+		\path (theta2) edge [connect] (dots);
+		
+		\path[bend right=45, color = gray!25] (O) edge [connect] (y1);
+		\path[bend right=45, color = gray!25] (O) edge [connect] (y2);
+		\path[bend right=45, color = gray!25] (O) edge [connect] (yT);
+	
+    	\path[bend left=45, color = gray!25] (T) edge [connect] (theta1);
+	    \path[bend left=45, color = gray!25] (T) edge [connect] (theta2);
+		\path[bend left=45, color = gray!25] (T) edge [connect] (thetaT);
+		
+		\draw[] (-0.5,-2.5) rectangle (3,1);
+	
+	\end{tikzpicture}
+\end{figure}	
+
+
+
+%\begin{tikzcd}[nodes in empty cells]
+%	\text{Markov process:}
+%	&   \boldsymbol{\theta}_0
+%	&   \boldsymbol{\theta}_1 \ar[dd]
+%	&   \boldsymbol{\theta}_2  \ar[dd]
+%	&   \dots  
+%	&   \boldsymbol{\theta}_{T-1} \ar[dd]       \\
+%	&   \arrow[rrrr, dashed, -,
+%	start anchor={[shift={(-3ex,2ex)}]north west},
+%	end anchor  ={[shift={( 3ex,2ex)}]north east}]
+%	&   &   &   &   &                               \\
+%	\text{Observations:}
+%	&   \mathbf{y}_0
+%	&   \mathbf{y}_1
+%	&   \mathbf{y}_2
+%	&   \dotsm
+%	&   \mathbf{y}_{T-1}           \\
+%\end{tikzcd}
+
+Returning back to the analysis of the 2020 coronavirus epidemic, with $n$ countries measured on $T$ time points, the data matrix $\mathbf{y}$ that we wish to co-cluster thus equals
+%
+$$
+\mathbf{y} = \begin{bmatrix}
+	(y^I_1(1), y^R_1(1)) & (y^I_1(2), y^R_1(2)) & \ldots & (y^I_1(T), y^R_1(T))\\
+	(y^I_2(1), y^R_2(1)) & (y^I_2(2), y^R_2(2)) & \ldots & (y^I_2(T), y^R_2(T))\\
+	\vdots & \vdots & \ldots & \vdots \\
+	(y^I_n(1), y^R_n(1)) & (y^I_n(2), y^R_n(2)) & \ldots & (y^I_n(T), y^R_n(T))
+\end{bmatrix}
+$$
+%
 
 \section{Latent Block Model}
-The latent block model (LBM; \cite{govaert2003clustering}) assumes a partitioning of the rows and columns of the data matrix $\mathbf{y}$ into blocks. Specifically, there is a partition ($Z$, $W$) for which $Z$ is partitioned into $K$ clusters on the $n$ rows and $W$ is partitioned into $L$ clusters on the $d$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{jl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if feature $j$ belongs to column cluster $l$ and $0$ otherwise. The matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $d \times L$, respectively. Co-clustering will yield subgroups, called blocks, such that $z_{ik} w_{jl} = 1$. Each element $y_{ij}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. Since it is assumed that $y_{ij}^I(t)$ and $y_{ij}^R(t)$ follow Beta distributions, these block distributions are given by the distributions specified by Equation \ref{statespace}. It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$.
+Following the latent block model (LBM; \cite{govaert2003clustering}), we assume that there is a partition ($Z$, $W$) of the data matrix $\mathbf{y}$, for which $Z$ is partitioned into $K$ clusters on the $n$ rows and $W$ is partitioned into $L$ clusters on the $T$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
+
+Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{it}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$.
 
 Now let $\alpha_k = P(Z_{ik} = 1)$ and $\beta_l = P(W_{jl} = 1)$ denote the respective row and column mixing proportions such that they both sum to 1 and 
 %
@@ -239,7 +315,7 @@ The state-space LBM can now graphically be represented as
 Since there are two model components of the eSIR LBM, we repeat the total set of parameters that needs to be estimated. The unknown parameters from the eSIR model component of the likelihood thus equals 
 %
 $ 
-\boldsymbol{\Omega}_1 = (\rho, \pi, \boldsymbol{\theta}, \lambda, \kappa)
+\boldsymbol{\Omega}_1 = (\rho, \gamma, \boldsymbol{\theta}, \lambda, \kappa)
 $ 
 %
 and the LBM model component of the likelihood equals
@@ -251,7 +327,7 @@ $
 The total set of parameters to be estimated thus equals 
 %
 $
-\boldsymbol{\Omega} = \boldsymbol{\Omega}_1 + \boldsymbol{\Omega}_2 = (\rho, \pi, \boldsymbol{\theta}, \lambda, \kappa, \alpha, \beta, \omega).
+\boldsymbol{\Omega} = \boldsymbol{\Omega}_1 + \boldsymbol{\Omega}_2 = (\rho, \gamma, \boldsymbol{\theta}, \lambda, \kappa, \alpha, \beta, \omega).
 $
 %
 

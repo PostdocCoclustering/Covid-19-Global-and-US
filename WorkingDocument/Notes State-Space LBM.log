@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  5 OCT 2020 16:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  6 OCT 2020 19:31
 entering extended mode
 **"./Notes State-Space LBM.tex"
 ("Notes State-Space LBM.tex"
@@ -501,6 +501,14 @@ File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfarrowwidth=\dimen198
 \pgfarrowlinewidth=\dimen199
 )))
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarycalc.code.tex"
+File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarypositioning.code.tex"
+File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\biblate
 x.sty"
 Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
@@ -769,10 +777,6 @@ File: biblatex.cfg
 yer/tikz/libraries\tikzlibraryfit.code.tex"
 File: tikzlibraryfit.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarypositioning.code.tex"
-File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-)
 \@quotelevel=\count400
 \@quotereset=\count401
 
@@ -784,20 +788,20 @@ File: l3backend-pdfmode.def 2019-04-06 L3 backend support: PDF mode
 ) ("Notes State-Space LBM.aux")
 \openout1 = `"Notes State-Space LBM.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp
 -pdf.mkii"
@@ -848,16 +852,16 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '"Notes State-Space LBM".bbl' found.
  ("Notes State-Space LBM.bbl")
-Package biblatex Info: Reference section=0 on input line 20.
-Package biblatex Info: Reference segment=0 on input line 20.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 21.
+Package biblatex Info: Reference section=0 on input line 28.
+Package biblatex Info: Reference segment=0 on input line 28.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 29.
 
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
 "
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 21.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
 
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
@@ -866,51 +870,61 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Gabriel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (10.87091pt too wide) in paragraph at lines 171--172
-[][] 
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
+68.
+
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
+File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+Overfull \hbox (49.509pt too wide) in paragraph at lines 211--212
+ [][] 
  []
 
 [2] [3] [4] [5] ("Notes State-Space LBM.aux")
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
 Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
 \openout1 = `"Notes State-Space LBM.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21683 strings out of 481568
- 440448 string characters out of 2913334
- 1032433 words of memory out of 3000000
- 36570 multiletter control sequences out of 15000+200000
- 547497 words of font info for 67 fonts, out of 3000000 for 9000
+ 21630 strings out of 481568
+ 437821 string characters out of 2913334
+ 1032237 words of memory out of 3000000
+ 36499 multiletter control sequences out of 15000+200000
+ 552418 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,17n,84p,1280b,1391s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,15n,84p,1035b,1391s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2
-.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Gabriel\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/Gabriel
-/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C
-:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmex10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Gabriel/AppData/Local/Progr
-ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Gabriel/AppDa
-ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Use
-rs/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextr
-a/cmmib7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Gabriel/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Gabriel/AppData/
-Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/G
-abriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.p
-fb>
-Output written on "Notes State-Space LBM.pdf" (5 pages, 192718 bytes).
+pen/ec/dpi600\ecss0900.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2
+.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Gabriel\AppData\Lo
+cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Gabrie
+l\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/U
+sers/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmbx9.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Gabriel/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/G
+abriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.p
+fb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Gabriel/AppData/Local/
+Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Ga
+briel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmm
+ib9.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Gabriel/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Gabriel/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
+/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmsy7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmsy9.pfb>
+Output written on "Notes State-Space LBM.pdf" (5 pages, 246814 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
+ 276 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
