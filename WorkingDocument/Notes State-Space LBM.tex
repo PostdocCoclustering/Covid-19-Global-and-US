@@ -17,7 +17,7 @@
 	main node/.style={thick,circle,draw,font=\sffamily\Large}
 }
 
-\usepackage[backend = biber, style=authoryear]{biblatex}
+\usepackage[backend = biber, style=bwl-FU]{biblatex}
 \addbibresource{bibliography.bib}
 
 \usetikzlibrary{fit,positioning}
@@ -53,19 +53,31 @@ $
 \boldsymbol{\theta} = (\theta_t^S, \theta_t^I, \theta_t^R)^\top,
 $
 %
-where $\theta_t^S$, $\theta_t^I$ and $\theta_t^R$ is the probability of a person being susceptible, infected and removed, respectively, at time point $t$. We will assume that 
+where $\theta_t^S$, $\theta_t^I$ and $\theta_t^R$ is the probability of a person being susceptible, infected and removed, respectively, at time point $t$. They thus satisfy 
+%
+$
+\theta_t^I + \theta_t^I + \theta_t^R = 1
+$
+% 
+and 
+%
+$
+\theta_t^S, \theta_t^I, \theta_t^R > 0
+$
+%
+for all $t \in [0, T]$ \parencite{osthus2017forecasting}. We will assume that 
 %
 $
 \boldsymbol{\theta}_{0:T} = (\boldsymbol{\theta}_0, \boldsymbol{\theta}_1, \ldots, \boldsymbol{\theta}_T)
 $
 %
-is a first-order Markov chain in the same spirit as \parencite{osthus2017forecasting} and \parencite{song2020epidemiological}. This implies that 
+is a first-order Markov chain in the same spirit as \cite{osthus2017forecasting} and \cite{song2020epidemiological}. This implies that 
 %
 $
 g(\boldsymbol{\theta}_t|\boldsymbol{\theta}_{0:(t-1)}) = g(\boldsymbol{\theta}_t|\boldsymbol{\theta}_{t-1}) \, \forall t \in [0:T]. 
 $
 %
-Specifically, we assume the following model for $\boldsymbol{\theta}$:
+Specifically, the extended SIR model \parencite{osthus2017forecasting,song2020epidemiological} assumes the following model for $\boldsymbol{\theta}$:
 %
 $$
 \boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\theta_{t-1}^S), \kappa f(\theta_{t-1}^I), \kappa f(\theta_{t-1}^R)),
@@ -73,90 +85,28 @@ $$
 where $\boldsymbol{\Omega}_1$ denotes the set of model parameters, $\kappa$ scales the variance of the Dirichlet distribution, and the function $f(\cdot)$ is a 3-dimensional vector that sets the mean of the Dirichlet distribution.
 %
 
-The function $f$ is the solution to the following dynamic system:
-%
-\begin{equation}\label{SIR}
-	\frac{d\theta_t^S}{dt} = -\rho\pi(t)\theta_t^S\theta_t^I, \quad \frac{d\theta_t^I}{dt} = \rho\pi(t)\theta_t^S\theta_t^I - \gamma \theta_t^I, \quad \frac{d\theta_t^R}{dt} = \gamma \theta_t^I,
-\end{equation}
-%
-where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The term $\pi(t)$ is a transmission modifier equal to $\pi(t) = (1-q^S(t))(1-q^I(t))$, where $q^S(t)$ denotes the probability of an susceptible person being in-home isolation, and $q^I(t)$ the probability of an infected person being in-hospital quarantine. The term $\pi(t)$ is a transmission modifier in the sense that it modifies the probability of a susceptible person getting in contact with an infected person. If a geographical region does not impose a quarantine, $\pi(t)=1$, and the dynamic system in \ref{SIR} reduces to the clasic formulation of the SIR model \parencite{kermack1927contribution}. We are however considering the extended version, for which the $\pi(t)$ term is included. Since there are no explicit solutions available to (\ref{SIR}), the so-called fourth-order Runge-Kutta approximation is implemented, meaning that 
-%
-$$
-\begin{aligned}
-	\begin{pmatrix}
-		f(\theta_{t-1}^S) \\
-		f(\theta_{t-1}^I) \\
-		f(\theta_{t-1}^R)
-	\end{pmatrix}
-\end{aligned} = 
-%
-\begin{aligned}
-	\begin{pmatrix}
-		\theta_{t-1}^S + 1/6[k_{t-1}^{\theta^S_1} + 2k_{t-1}^{\theta^S_2} + 2k_{t-1}^{\theta^S_3} + k_{t-1}^{\theta^S_4}] \\
-		\theta_{t-1}^I + 1/6[k_{t-1}^{\theta^I_1} + 2k_{t-1}^{\theta^I_2} + 2k_{t-1}^{\theta^I_3} + k_{t-1}^{\theta^I_4}] \\
-		\theta_{t-1}^R + 1/6[k_{t-1}^{\theta^R_1} + 2k_{t-1}^{\theta^R_2} + 2k_{t-1}^{\theta^R_3} + k_{t-1}^{\theta^R_4}]
-	\end{pmatrix}
-\end{aligned}
-$$
-%
-where 
-%
-\begin{equation*}
-\begin{split}	
-		k_{t-1}^{\theta^S_1} &= - \rho \theta_{t-1}^S \theta_{t-1}^I, \\
-		%
-		k_{t-1}^{\theta^S_2} &= - \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_1}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
-		%
-		k_{t-1}^{\theta^S_3} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_2}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
-		%
-		k_{t-1}^{\theta^S_4} &= \rho [\theta_{t-1}^S + k_{t-1}^{\theta^S_3}] [\theta_{t-1}^I + k_{t-1}^{\theta^I_3}],
-\end{split}
-\end{equation*}
-%
-\begin{equation*}
-	\begin{split}	
-		k_{t-1}^{\theta^I_1} &= \rho \theta_{t-1}^S \theta_{t-1}^I - \gamma \theta^I_{t-1}, \\
-		%
-		k_{t-1}^{\theta^I_2} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_1}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}] - \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
-		%
-		k_{t-1}^{\theta^I_3} &= \rho [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_2}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}] - \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
-		%
-		k_{t-1}^{\theta^I_4} &= \rho [\theta_{t-1}^S + k_{t-1}^{\theta^S_3}] [\theta_{t-1}^I + k_{t-1}^{\theta^I_3}] - \pi[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}], 
-	\end{split}
-\end{equation*}
-%
-and 
-%
-\begin{equation*}
-	\begin{split}	
-		k_{t-1}^{\theta^R_1} &= \gamma \theta^I_{t-1}, \\
-		%
-		k_{t-1}^{\theta^R_2} &= \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
-		%
-		k_{t-1}^{\theta^R_3} &= \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
-		%
-		k_{t-1}^{\theta^R_4} &= \gamma[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}]. 
-	\end{split}
-\end{equation*}
-%
-
-Lastly, for the data $\mathbf{y}$  we follow \parencite{song2020epidemiological} and make the following distributional assumptions,  
+Lastly, for the data $\mathbf{y}$  we follow \cite{song2020epidemiological} and make the following distributional assumptions,  
 %
 \begin{equation}\label{statespace}
-\begin{aligned}
-	y_{i}^I(t) | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_t^I, \lambda^I(1 - \theta_t^I)) \\
-	%
-	y_{i}^R(t) | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_t^R, \lambda^R(1 - \theta_t^R)
-\end{aligned}
+	\begin{aligned}
+		y_{i}^I(t) | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_t^I, \lambda^I(1 - \theta_t^I)) \\
+		%
+		y_{i}^R(t) | \boldsymbol{\theta}, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_t^R, \lambda^R(1 - \theta_t^R)
+	\end{aligned}
 \end{equation}
 %
-where 
+for 
+%
+$i=1, \ldots, n$, $t=1, \ldots, T$,
+%
+and
 %
 $
-\boldsymbol{\Omega}_1 = (\rho, \gamma, \mathbf{\theta}, \lambda, \kappa)^\top.
+\boldsymbol{\Omega}_1 = (\rho, \gamma, \boldsymbol{\theta}, \lambda^I, \lambda^R, \kappa)^\top,
 $
 %
-We consequently have a state-space formulation of the considered model, where $\boldsymbol{\theta}$ is the underlying, latent process that guides the observed data $(y_i^I(t), y_i^R(t))$. This state-space extended SIR model can be graphically summarized as
+where $\lambda^I$ scales the variance in each respective distribution of $y_i^I(t)$ and $y_i^R(t)$.
+We consequently have a state-space formulation of the considered model, where $\boldsymbol{\theta}$ is the underlying, latent process that guides the observed data $(y_i^I(t), y_i^R(t))$. This can be graphically summarized as
 
 
 \begin{figure}[H]
@@ -183,7 +133,7 @@ We consequently have a state-space formulation of the considered model, where $\
 		
 		\path (kappa) edge [connect] (T);
 		\path (lambda) edge [connect] (O);
-			
+		
 		\path (T) edge [connect] (theta0);
 		
 		\path (theta0) edge [connect] (theta1);
@@ -201,15 +151,84 @@ We consequently have a state-space formulation of the considered model, where $\
 		\path[bend right=45, color = gray!25] (O) edge [connect] (y1);
 		\path[bend right=45, color = gray!25] (O) edge [connect] (y2);
 		\path[bend right=45, color = gray!25] (O) edge [connect] (yT);
-	
-    	\path[bend left=45, color = gray!25] (T) edge [connect] (theta1);
-	    \path[bend left=45, color = gray!25] (T) edge [connect] (theta2);
+		
+		\path[bend left=45, color = gray!25] (T) edge [connect] (theta1);
+		\path[bend left=45, color = gray!25] (T) edge [connect] (theta2);
 		\path[bend left=45, color = gray!25] (T) edge [connect] (thetaT);
 		
 		\draw[] (-0.5,-2.5) rectangle (3,1);
-	
+		
 	\end{tikzpicture}
-\end{figure}	
+\end{figure}
+
+Following \cite{song2020epidemiological}, the function $f$ is the solution to the dynamic system
+%
+\begin{equation}\label{SIR}
+	\frac{d\theta_t^S}{dt} = -\rho\pi(t)\theta_t^S\theta_t^I, \quad \frac{d\theta_t^I}{dt} = \rho\pi(t)\theta_t^S\theta_t^I - \gamma \theta_t^I, \quad \frac{d\theta_t^R}{dt} = \gamma \theta_t^I,
+\end{equation}
+%
+where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The term $\pi(t)$ is a transmission modifier equal to $\pi(t) = (1-q^S(t))(1-q^I(t))$, where $q^S(t)$ denotes the probability of a susceptible person being in-home isolation, and $q^I(t)$ the probability of an infected person being in-hospital quarantine. The term $\pi(t)$ therefore is a transmission modifier in the sense that it modifies the probability of a susceptible person getting in contact with an infected person. The chance of such a meeting to occur is to a great extent determined by which restrictions on social gatherings are in place. For example, if a geographical region does not impose a quarantine, $\pi(t)=1$, and the dynamic system in (\ref{SIR}) reduces to the clasic formulation of the SIR model \parencite{kermack1927contribution}. As the rules of social distancing gets stricter, the transmission modifier $\pi(t)$ decreases, making the overall transmission rate to decrease as well. As we are considering the extended SIR (eSIR) model suggested by \cite{song2020epidemiological}, the $\pi(t)$ term is allowed to differ from 1. 
+
+Since there are no explicit solutions available to (\ref{SIR}), the so-called fourth-order Runge-Kutta approximation is implemented, meaning that 
+%
+$$
+\begin{aligned}
+	\begin{pmatrix}
+		f(\theta_{t-1}^S) \\
+		f(\theta_{t-1}^I) \\
+		f(\theta_{t-1}^R)
+	\end{pmatrix}
+\end{aligned} = 
+%
+\begin{aligned}
+	\begin{pmatrix}
+		\theta_{t-1}^S + 1/6[k_{t-1}^{\theta^S_1} + 2k_{t-1}^{\theta^S_2} + 2k_{t-1}^{\theta^S_3} + k_{t-1}^{\theta^S_4}] \\
+		\theta_{t-1}^I + 1/6[k_{t-1}^{\theta^I_1} + 2k_{t-1}^{\theta^I_2} + 2k_{t-1}^{\theta^I_3} + k_{t-1}^{\theta^I_4}] \\
+		\theta_{t-1}^R + 1/6[k_{t-1}^{\theta^R_1} + 2k_{t-1}^{\theta^R_2} + 2k_{t-1}^{\theta^R_3} + k_{t-1}^{\theta^R_4}]
+	\end{pmatrix}
+\end{aligned}
+$$
+%
+where 
+%
+\begin{equation*}
+\begin{split}	
+		k_{t-1}^{\theta^S_1} &= - \rho\pi(t-1) \theta_{t-1}^S \theta_{t-1}^I, \\
+		%
+		k_{t-1}^{\theta^S_2} &= - \rho\pi(t-1) [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_1}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
+		%
+		k_{t-1}^{\theta^S_3} &= \rho\pi(t-1) [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_2}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
+		%
+		k_{t-1}^{\theta^S_4} &= \rho\pi(t-1) [\theta_{t-1}^S + k_{t-1}^{\theta^S_3}] [\theta_{t-1}^I + k_{t-1}^{\theta^I_3}],
+\end{split}
+\end{equation*}
+%
+\begin{equation*}
+	\begin{split}	
+		k_{t-1}^{\theta^I_1} &= \rho\pi(t-1) \theta_{t-1}^S \theta_{t-1}^I - \gamma \theta^I_{t-1}, \\
+		%
+		k_{t-1}^{\theta^I_2} &= \rho\pi(t-1) [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_1}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}] - \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
+		%
+		k_{t-1}^{\theta^I_3} &= \rho\pi(t-1) [\theta_{t-1}^S + 0.5 k_{t-1}^{\theta^S_2}] [\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}] - \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
+		%
+		k_{t-1}^{\theta^I_4} &= \rho\pi(t-1) [\theta_{t-1}^S + k_{t-1}^{\theta^S_3}] [\theta_{t-1}^I + k_{t-1}^{\theta^I_3}] - \gamma[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}], 
+	\end{split}
+\end{equation*}
+%
+and 
+%
+\begin{equation*}
+	\begin{split}	
+		k_{t-1}^{\theta^R_1} &= \gamma \theta^I_{t-1}, \\
+		%
+		k_{t-1}^{\theta^R_2} &= \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_1}], \\
+		%
+		k_{t-1}^{\theta^R_3} &= \gamma[\theta_{t-1}^I + 0.5 k_{t-1}^{\theta^I_2}], \\
+		%
+		k_{t-1}^{\theta^R_4} &= \gamma[\theta_{t-1}^I + k_{t-1}^{\theta^I_3}]. 
+	\end{split}
+\end{equation*}
+%	
 
 
 
@@ -232,7 +251,10 @@ We consequently have a state-space formulation of the considered model, where $\
 %	&   \mathbf{y}_{T-1}           \\
 %\end{tikzcd}
 
-Returning back to the analysis of the 2020 coronavirus epidemic, with $n$ countries measured on $T$ time points, the data matrix $\mathbf{y}$ that we wish to co-cluster thus equals
+
+
+\section{Latent Block Model}
+With $n$ countries measured on $T$ time points, the data matrix $\mathbf{y}$ that we wish to co-cluster equals
 %
 $$
 \mathbf{y} = \begin{bmatrix}
@@ -244,10 +266,23 @@ $$
 $$
 %
 
-\section{Latent Block Model}
 Following the latent block model (LBM; \cite{govaert2003clustering}), we assume that there is a partition ($Z$, $W$) of the data matrix $\mathbf{y}$, for which $Z$ is partitioned into $K$ clusters on the $n$ rows and $W$ is partitioned into $L$ clusters on the $T$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
 
-Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{it}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$.
+Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{it}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. Specifically, we assume that 
+
+%
+\begin{equation}\label{statespace-cocluster}
+	\begin{aligned}
+		y_{i}^I(t) | Z = k, W = l, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_{kl}^I(t), \lambda^I(1 - \theta_{kl}^I(t)) \\
+		%
+		y_{i}^R(t) | Z = k, W = l, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_{kl}^R(t), \lambda^R(1 - \theta_{kl}^R(t))
+	\end{aligned}
+\end{equation}
+% 
+
+It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$.
+
+For the analysis of the coronavirus pandemic, we thus assume that there is a geographical partition of countries that are homogeneous in terms of proportion infected $y^I(t)$ and removed $y^R(t)$, and that there is a partitioning of the time points $t$ that together form homogeneous blocks.
 
 Now let $\alpha_k = P(Z_{ik} = 1)$ and $\beta_l = P(W_{jl} = 1)$ denote the respective row and column mixing proportions such that they both sum to 1 and 
 %

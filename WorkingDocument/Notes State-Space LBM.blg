@@ -1,17 +1,17 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [0] Config.pm:307> INFO - Logfile is 'Notes State-Space LBM.blg'
-[97] biber-MSWIN64:322> INFO - === 
-[117] Biber.pm:415> INFO - Reading 'Notes State-Space LBM.bcf'
-[235] Biber.pm:943> INFO - Found 5 citekeys in bib section 0
-[255] Biber.pm:4256> INFO - Processing section 0
-[255] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
-[266] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
-[285] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[290] bibtex.pm:1653> INFO - LaTeX decoding ...
-[346] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
-[437] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[437] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[437] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[438] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[446] bbl.pm:652> INFO - Writing 'Notes State-Space LBM.bbl' with encoding 'UTF-8'
-[452] bbl.pm:755> INFO - Output to Notes State-Space LBM.bbl
+[67] biber-MSWIN64:322> INFO - === 
+[84] Biber.pm:415> INFO - Reading 'Notes State-Space LBM.bcf'
+[175] Biber.pm:943> INFO - Found 5 citekeys in bib section 0
+[190] Biber.pm:4256> INFO - Processing section 0
+[190] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
+[199] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
+[213] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[227] bibtex.pm:1653> INFO - LaTeX decoding ...
+[291] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
+[380] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[381] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[381] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[381] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[390] bbl.pm:652> INFO - Writing 'Notes State-Space LBM.bbl' with encoding 'UTF-8'
+[396] bbl.pm:755> INFO - Output to Notes State-Space LBM.bbl

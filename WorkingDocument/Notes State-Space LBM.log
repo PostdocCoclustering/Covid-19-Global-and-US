@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  6 OCT 2020 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  12 OCT 2020 16:57
 entering extended mode
 **"./Notes State-Space LBM.tex"
 ("Notes State-Space LBM.tex"
@@ -625,7 +625,7 @@ def"
 File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'authoryear.dbx' not found.
+Package biblatex Info: ... file 'bwl-FU.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count321
@@ -737,6 +737,12 @@ File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 \biburllcskip=\muskip21
 \c@smartand=\count397
 )
+Package biblatex Info: Trying to load bibliography style 'bwl-FU'...
+Package biblatex Info: ... file 'bwl-FU.bbx' found.
+
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex-bwl\bwl
+-FU.bbx"
+File: bwl-FU.bbx 2012/05/19 v0.02 biblatex bibliography style
 Package biblatex Info: Trying to load bibliography style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.bbx' found.
 
@@ -751,7 +757,13 @@ ndard.bbx"
 File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count398
 \c@bbx:relatedtotal=\count399
-))
+)))
+Package biblatex Info: Trying to load citation style 'bwl-FU'...
+Package biblatex Info: ... file 'bwl-FU.cbx' found.
+
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex-bwl\bwl
+-FU.cbx"
+File: bwl-FU.cbx 2012/05/19 v0.02 biblatex citation style
 Package biblatex Info: Trying to load citation style 'authoryear'...
 Package biblatex Info: ... file 'authoryear.cbx' found.
 
@@ -765,6 +777,8 @@ Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
+)
+Package biblatex Info: Redefining '\parencite'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
@@ -867,32 +881,32 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 29.
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
 "
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
-
-{C:/Users/Gabriel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+)
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-68.
-
-("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
+18.
+ ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (49.509pt too wide) in paragraph at lines 211--212
+Overfull \hbox (49.509pt too wide) in paragraph at lines 161--162
  [][] 
  []
 
-[2] [3] [4] [5] ("Notes State-Space LBM.aux")
+[1
+
+{C:/Users/Gabriel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+[2] [3] [4] [5] [6] ("Notes State-Space LBM.aux")
 Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
 \openout1 = `"Notes State-Space LBM.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21630 strings out of 481568
- 437821 string characters out of 2913334
- 1032237 words of memory out of 3000000
- 36499 multiletter control sequences out of 15000+200000
+ 21650 strings out of 481568
+ 438448 string characters out of 2913334
+ 1032495 words of memory out of 3000000
+ 36513 multiletter control sequences out of 15000+200000
  552418 words of font info for 81 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,15n,84p,1035b,1391s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,15n,84p,1247b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ecss0900.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
@@ -922,9 +936,9 @@ AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
 /Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
 ic/amsfonts/cm/cmsy9.pfb>
-Output written on "Notes State-Space LBM.pdf" (5 pages, 246814 bytes).
+Output written on "Notes State-Space LBM.pdf" (6 pages, 248728 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
+ 280 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
