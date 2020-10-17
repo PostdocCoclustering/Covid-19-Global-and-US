@@ -2183,18 +2183,23 @@
     <bcf:datasource type="file" datatype="bibtex">bibliography.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="2">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="3">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="4">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="4">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="5">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="6">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="7">kermack1927contribution</bcf:citekey>
-    <bcf:citekey order="8">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="9">govaert2003clustering</bcf:citekey>
-    <bcf:citekey order="10">keribin2015estimation</bcf:citekey>
-    <bcf:citekey order="11">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="1">govaert2003clustering</bcf:citekey>
+    <bcf:citekey order="2">govaert2010latent</bcf:citekey>
+    <bcf:citekey order="3">nadif2010model</bcf:citekey>
+    <bcf:citekey order="4">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="5">jacques2018model</bcf:citekey>
+    <bcf:citekey order="5">corneli2020co</bcf:citekey>
+    <bcf:citekey order="6">Bouveyron</bcf:citekey>
+    <bcf:citekey order="7">boutalbi2020tensor</bcf:citekey>
+    <bcf:citekey order="8">kermack1927contribution</bcf:citekey>
+    <bcf:citekey order="9">osthus2017forecasting</bcf:citekey>
+    <bcf:citekey order="10">osthus2017forecasting</bcf:citekey>
+    <bcf:citekey order="11">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="12">osthus2017forecasting</bcf:citekey>
+    <bcf:citekey order="13">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="14">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="15">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="16">keribin2015estimation</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

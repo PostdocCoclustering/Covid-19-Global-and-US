@@ -19,14 +19,144 @@
 
 \refsection{0}
   \datalist[entry]{nyt/global//global/global}
+    \entry{boutalbi2020tensor}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=d77bb582428f5f891bfd84b637b428bf}{%
+           family={Boutalbi},
+           familyi={B\bibinitperiod},
+           given={Rafika},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=736fd085ce2fc2c62ad17dd89f0b57e0}{%
+           family={Labiod},
+           familyi={L\bibinitperiod},
+           given={Lazhar},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6bc7c3c64d6c8adfb8e4a1479f69e37}{%
+           family={Nadif},
+           familyi={N\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{9309e947c5a6779542e7ac576e4c2cd5}
+      \strng{fullhash}{9309e947c5a6779542e7ac576e4c2cd5}
+      \strng{bibnamehash}{9309e947c5a6779542e7ac576e4c2cd5}
+      \strng{authorbibnamehash}{9309e947c5a6779542e7ac576e4c2cd5}
+      \strng{authornamehash}{9309e947c5a6779542e7ac576e4c2cd5}
+      \strng{authorfullhash}{9309e947c5a6779542e7ac576e4c2cd5}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Journal of Data Science and Analytics}
+      \field{title}{Tensor latent block model for co-clustering}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+    \endentry
+    \entry{Bouveyron}{article}{}
+      \name{author}{4}{}{%
+        {{un=2,uniquepart=given,hash=5454f0d5ed4423fa69d64c2b1804d07a}{%
+           family={Bouveyron},
+           familyi={B\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=ee23343e3387a3d2c561b53f3bdf725e}{%
+           family={Bozzi},
+           familyi={B\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08f21c3c0ea68f83f93a6fca2c77d78a}{%
+           family={Jacques},
+           familyi={J\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53d366be247106eaeee50dc88e7df63d}{%
+           family={Jollois},
+           familyi={J\bibinitperiod},
+           given={F-X.},
+           giveni={F\bibinithyphendelim X\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{829f869a6bc3d80d3fa8b4c800ea0ab5}
+      \strng{fullhash}{844eb610dbc9eff2079d636692ed4e99}
+      \strng{bibnamehash}{829f869a6bc3d80d3fa8b4c800ea0ab5}
+      \strng{authorbibnamehash}{829f869a6bc3d80d3fa8b4c800ea0ab5}
+      \strng{authornamehash}{829f869a6bc3d80d3fa8b4c800ea0ab5}
+      \strng{authorfullhash}{844eb610dbc9eff2079d636692ed4e99}
+      \field{sortinit}{B}
+      \field{sortinithash}{8de16967003c7207dae369d874f1456e}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the Royal Statistical Society, Series C Applied Statistics}
+      \field{number}{67}
+      \field{title}{The Functional Latent Block Model for theCo-Clustering of Electricity Consumption Curves}
+      \field{year}{2018}
+      \field{pages}{897\bibrangedash 915}
+      \range{pages}{19}
+    \endentry
+    \entry{corneli2020co}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=d3a5931ec98c766ec98267c2b1951371}{%
+           family={Corneli},
+           familyi={C\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=2,uniquepart=given,hash=42ce24b23668c98fc5dc4a0df7a342fa}{%
+           family={Bouveyron},
+           familyi={B\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=b8cbdc7cdc40443b1d5d0c62d02b7b8a}{%
+           family={Latouche},
+           familyi={L\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{3c7ebe72eafb00740440d79fca7784dd}
+      \strng{fullhash}{3c7ebe72eafb00740440d79fca7784dd}
+      \strng{bibnamehash}{3c7ebe72eafb00740440d79fca7784dd}
+      \strng{authorbibnamehash}{3c7ebe72eafb00740440d79fca7784dd}
+      \strng{authornamehash}{3c7ebe72eafb00740440d79fca7784dd}
+      \strng{authorfullhash}{3c7ebe72eafb00740440d79fca7784dd}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Computational and Graphical Statistics}
+      \field{title}{Co-clustering of ordinal data via latent continuous random variables and not missing at random entries}
+      \field{year}{2020}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+    \endentry
     \entry{govaert2003clustering}{article}{}
       \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=5dbd99c49ebc046dee294b4d416a1850}{%
+        {{un=2,uniquepart=given,hash=5dbd99c49ebc046dee294b4d416a1850}{%
            family={Govaert},
            familyi={G\bibinitperiod},
            given={G{é}rard},
            giveni={G\bibinitperiod},
-           givenun=0}}%
+           givenun=2}}%
         {{un=0,uniquepart=base,hash=a6bc7c3c64d6c8adfb8e4a1479f69e37}{%
            family={Nadif},
            familyi={N\bibinitperiod},
@@ -43,6 +173,7 @@
       \strng{authorbibnamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
       \strng{authornamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
       \strng{authorfullhash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \field{extraname}{1}
       \field{sortinit}{G}
       \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
       \field{extradatescope}{labelyear}
@@ -56,6 +187,82 @@
       \field{year}{2003}
       \field{pages}{463\bibrangedash 473}
       \range{pages}{11}
+    \endentry
+    \entry{govaert2010latent}{article}{}
+      \name{author}{2}{}{%
+        {{un=2,uniquepart=given,hash=5dbd99c49ebc046dee294b4d416a1850}{%
+           family={Govaert},
+           familyi={G\bibinitperiod},
+           given={G{é}rard},
+           giveni={G\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=a6bc7c3c64d6c8adfb8e4a1479f69e37}{%
+           family={Nadif},
+           familyi={N\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis}%
+      }
+      \strng{namehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{fullhash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{bibnamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{authorbibnamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{authornamehash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \strng{authorfullhash}{8c07dc45270c2c9b55f2b3ebf5a87cf7}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Communications in Statistics—Theory and Methods}
+      \field{number}{3}
+      \field{title}{Latent block model for contingency table}
+      \field{volume}{39}
+      \field{year}{2010}
+      \field{pages}{416\bibrangedash 425}
+      \range{pages}{10}
+    \endentry
+    \entry{jacques2018model}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=f931f5aa53e28e16c8e029ef9fd445de}{%
+           family={Jacques},
+           familyi={J\bibinitperiod},
+           given={Julien},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f2a55eacc5e0901d66754d929d25506d}{%
+           family={Biernacki},
+           familyi={B\bibinitperiod},
+           given={Christophe},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{0583c8156e39dc885593f0b7633fd28f}
+      \strng{fullhash}{0583c8156e39dc885593f0b7633fd28f}
+      \strng{bibnamehash}{0583c8156e39dc885593f0b7633fd28f}
+      \strng{authorbibnamehash}{0583c8156e39dc885593f0b7633fd28f}
+      \strng{authornamehash}{0583c8156e39dc885593f0b7633fd28f}
+      \strng{authorfullhash}{0583c8156e39dc885593f0b7633fd28f}
+      \field{sortinit}{J}
+      \field{sortinithash}{c45040a764d616897e7f5b30174d7b92}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Statistics \& Data Analysis}
+      \field{title}{Model-based co-clustering for ordinal data}
+      \field{volume}{123}
+      \field{year}{2018}
+      \field{pages}{101\bibrangedash 115}
+      \range{pages}{15}
     \endentry
     \entry{keribin2015estimation}{article}{}
       \name{author}{4}{}{%
@@ -144,6 +351,42 @@
       \field{year}{1927}
       \field{pages}{700\bibrangedash 721}
       \range{pages}{22}
+    \endentry
+    \entry{nadif2010model}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a6bc7c3c64d6c8adfb8e4a1479f69e37}{%
+           family={Nadif},
+           familyi={N\bibinitperiod},
+           given={Mohamed},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=2,uniquepart=given,hash=0f25265b2dee9f27917f5dfa4de14172}{%
+           family={Govaert},
+           familyi={G\bibinitperiod},
+           given={Gerard},
+           giveni={G\bibinitperiod},
+           givenun=2}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{96872478d3a1694f580e1bfebbcf75bd}
+      \strng{fullhash}{96872478d3a1694f580e1bfebbcf75bd}
+      \strng{bibnamehash}{96872478d3a1694f580e1bfebbcf75bd}
+      \strng{authorbibnamehash}{96872478d3a1694f580e1bfebbcf75bd}
+      \strng{authornamehash}{96872478d3a1694f580e1bfebbcf75bd}
+      \strng{authorfullhash}{96872478d3a1694f580e1bfebbcf75bd}
+      \field{sortinit}{N}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2010 Ninth international conference on machine learning and applications}
+      \field{title}{Model-based co-clustering for continuous data}
+      \field{year}{2010}
+      \field{pages}{175\bibrangedash 180}
+      \range{pages}{6}
     \endentry
     \entry{osthus2017forecasting}{article}{}
       \name{author}{5}{}{%

@@ -22,14 +22,21 @@
 
 \usetikzlibrary{fit,positioning}
 
-\author{Gabriel Wallin}
+\author{}
 \title{Some notes on state-space LBM}
 
 \begin{document}
 \maketitle
 
+\begin{abstract}
+	\noindent In response to the global coronavirus pandemic, we study co-clustering of multivariate time-series data as a way to simultaneously cluster both geographical regions and time periods after the outbreak of the pandemic. The resulting blocks of clusters, identified with a latent block model component, are integrated with an extended SIR model that takes both geographical clusters as well as clusters of time periods into account. We consider US data (or global or both?) and show how the novel latent block SIR model produce better prediction accuracy of the epidemic, and gives further understanding of how the virus is spreading in different geographical regions during different periods of time. 
+\end{abstract}	
+
 \section{The Extended SIR model}
-To specify the State-Space Latent Block Model (SS-LBM), we introduce the following notation: 
+
+The latent block model \parencite{govaert2003clustering} is a commonly used model for co-clustering of large data matrices. It is a model-based approach that assumes that the rows and columns of the data matrix can be arranged according to latent row and column clusters. It has been extended to cover the case of counting data \parencite{govaert2010latent}, continuous data \parencite{nadif2010model}, categorical data \parencite{keribin2015estimation}, ordinal data \parencite{jacques2018model, corneli2020co}, functional data \parencite{Bouveyron}  and tensor data \parencite{boutalbi2020tensor}. In this work, the latent block model is extended in two ways: first by covering time-series data of proportions, and secondly by being integrated with the SIR model \parencite{kermack1927contribution}, commonly used in the analysis of disease spread.
+
+To specify the suggested State-Space Latent Block Model (SS-LBM), we introduce the following notation: 
 %
 $
 \mathbf{y} = (\mathbf{y}_{it}, i = 1, \ldots, n; t = 1, \ldots T) 
@@ -47,7 +54,7 @@ $
 \mathbf{y}_{it} = (y_{i}^I(t), y_{i}^R(t))^\top
 $
 %
-where $y_{i}^I(t)$ and $y_{i}^R(t)$ denote the proportion of infected and removed (recovered or dead) by the virus, respectively, at time point $t$. Further, let  
+where $y_{i}^I(t)$ and $y_{i}^R(t)$ denote the proportion of infected and removed (recovered or dead) by the virus, respectively, at time point $t$. The index $i$ denotes a geographical region, like for example country or state. Further, let  
 %
 $
 \boldsymbol{\theta} = (\theta_t^S, \theta_t^I, \theta_t^R)^\top,
@@ -65,27 +72,24 @@ $
 \theta_t^S, \theta_t^I, \theta_t^R > 0
 $
 %
-for all $t \in [0, T]$ \parencite{osthus2017forecasting}. We will assume that 
+for all $t \in [0, T]$ \parencite{osthus2017forecasting}. We will take the same approach as in \cite{osthus2017forecasting} and \cite{song2020epidemiological} and assume that 
 %
 $
 \boldsymbol{\theta}_{0:T} = (\boldsymbol{\theta}_0, \boldsymbol{\theta}_1, \ldots, \boldsymbol{\theta}_T)
 $
 %
-is a first-order Markov chain in the same spirit as \cite{osthus2017forecasting} and \cite{song2020epidemiological}. This implies that 
+is a first-order Markov chain. This implies that 
 %
 $
 g(\boldsymbol{\theta}_t|\boldsymbol{\theta}_{0:(t-1)}) = g(\boldsymbol{\theta}_t|\boldsymbol{\theta}_{t-1}) \, \forall t \in [0:T]. 
 $
 %
-Specifically, the extended SIR model \parencite{osthus2017forecasting,song2020epidemiological} assumes the following model for $\boldsymbol{\theta}$:
+Specifically, the extended SIR model as suggested by \cite{osthus2017forecasting} and extended by \cite{song2020epidemiological}, assumes the following model for $\boldsymbol{\theta}$:
 %
 $$
-\boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\theta_{t-1}^S), \kappa f(\theta_{t-1}^I), \kappa f(\theta_{t-1}^R)),
+\boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\boldsymbol{\theta}_{t-1})),
 $$
-where $\boldsymbol{\Omega}_1$ denotes the set of model parameters, $\kappa$ scales the variance of the Dirichlet distribution, and the function $f(\cdot)$ is a 3-dimensional vector that sets the mean of the Dirichlet distribution.
-%
-
-Lastly, for the data $\mathbf{y}$  we follow \cite{song2020epidemiological} and make the following distributional assumptions,  
+where $\boldsymbol{\Omega}_1$ denotes the set of model parameters, $\kappa$ scales the variance of the Dirichlet distribution, and the function $f(\cdot)$ is a 3-dimensional vector that sets the mean of the Dirichlet distribution. The form of the function $f(\cdot)$ will be presented in what follows. For the observed data $\mathbf{y}$, \cite{song2020epidemiological} make the following distributional assumptions,  
 %
 \begin{equation}\label{statespace}
 	\begin{aligned}
@@ -106,7 +110,8 @@ $
 $
 %
 where $\lambda^I$ scales the variance in each respective distribution of $y_i^I(t)$ and $y_i^R(t)$.
-We consequently have a state-space formulation of the considered model, where $\boldsymbol{\theta}$ is the underlying, latent process that guides the observed data $(y_i^I(t), y_i^R(t))$. This can be graphically summarized as
+
+The extended SIR model thus considers a bivariate stochastic process $\{\boldsymbol{\theta}_t, \mathbf{y}_t\}$ that is modeled using a state-space model: $\boldsymbol{\theta}_t$ is the underlying, latent process that guides the observed data $\boldsymbol{y}_t = (y_i^I(t), y_i^R(t))$. This can be graphically summarized as
 
 
 \begin{figure}[H]
@@ -161,13 +166,13 @@ We consequently have a state-space formulation of the considered model, where $\
 	\end{tikzpicture}
 \end{figure}
 
-Following \cite{song2020epidemiological}, the function $f$ is the solution to the dynamic system
+Regarding the function $f(\cdot)$, it is the solution to the dynamic system
 %
 \begin{equation}\label{SIR}
 	\frac{d\theta_t^S}{dt} = -\rho\pi(t)\theta_t^S\theta_t^I, \quad \frac{d\theta_t^I}{dt} = \rho\pi(t)\theta_t^S\theta_t^I - \gamma \theta_t^I, \quad \frac{d\theta_t^R}{dt} = \gamma \theta_t^I,
 \end{equation}
 %
-where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The term $\pi(t)$ is a transmission modifier equal to $\pi(t) = (1-q^S(t))(1-q^I(t))$, where $q^S(t)$ denotes the probability of a susceptible person being in-home isolation, and $q^I(t)$ the probability of an infected person being in-hospital quarantine. The term $\pi(t)$ therefore is a transmission modifier in the sense that it modifies the probability of a susceptible person getting in contact with an infected person. The chance of such a meeting to occur is to a great extent determined by which restrictions on social gatherings are in place. For example, if a geographical region does not impose a quarantine, $\pi(t)=1$, and the dynamic system in (\ref{SIR}) reduces to the clasic formulation of the SIR model \parencite{kermack1927contribution}. As the rules of social distancing gets stricter, the transmission modifier $\pi(t)$ decreases, making the overall transmission rate to decrease as well. As we are considering the extended SIR (eSIR) model suggested by \cite{song2020epidemiological}, the $\pi(t)$ term is allowed to differ from 1. 
+where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The term $\pi(t)$ is a transmission modifier equal to $\pi(t) = (1-q^S(t))(1-q^I(t))$, where $q^S(t)$ denotes the probability of a susceptible person being in-home isolation, and $q^I(t)$ the probability of an infected person being in-hospital quarantine. The term $\pi(t)$ therefore is a transmission modifier in the sense that it modifies the probability of a susceptible person getting in contact with an infected person. The chance of such a meeting to occur is to a great extent determined by which restrictions on social gatherings are in place. For example, if a geographical region does not impose a quarantine, $\pi(t)=1$, and the dynamic system in (\ref{SIR}) reduces to the clasic formulation of the SIR model. As the rules of social distancing gets stricter, the transmission modifier $\pi(t)$ decreases, making the overall transmission rate to decrease as well. In this work, the $\pi(t)$ term is allowed to differ from 1. 
 
 Since there are no explicit solutions available to (\ref{SIR}), the so-called fourth-order Runge-Kutta approximation is implemented, meaning that 
 %
@@ -266,23 +271,43 @@ $$
 $$
 %
 
-Following the latent block model (LBM; \cite{govaert2003clustering}), we assume that there is a partition ($Z$, $W$) of the data matrix $\mathbf{y}$, for which $Z$ is partitioned into $K$ clusters on the $n$ rows and $W$ is partitioned into $L$ clusters on the $T$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
+Following the latent block model, we assume that there is a partition ($Z, W$) of the data matrix $\mathbf{y}$, where $Z = (z_{ik}; , i=1,\ldots, n, \: k = 1,\ldots, K)$ represents the partitioning into $K$ clusters on the $n$ rows and $W = (w_{tl}; t=1,\ldots, T, \: l=1,\ldots, L)$ represents the partitioning into $L$ clusters on the $T$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
 
 Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{it}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. Specifically, we assume that 
-
 %
-\begin{equation}\label{statespace-cocluster}
+\begin{equation}\label{statespace-observed}
 	\begin{aligned}
-		y_{i}^I(t) | Z = k, W = l, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_{kl}^I(t), \lambda^I(1 - \theta_{kl}^I(t)) \\
+		y_{i}^I(t) | Z_{ik}W_{jl} = 1, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_{kl}^I(t), \lambda^I(1 - \theta_{kl}^I(t)) \\
 		%
-		y_{i}^R(t) | Z = k, W = l, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_{kl}^R(t), \lambda^R(1 - \theta_{kl}^R(t))
+		y_{i}^R(t) | Z_{ik}W_{jl} = 1, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_{kl}^R(t), \lambda^R(1 - \theta_{kl}^R(t))
 	\end{aligned}
 \end{equation}
 % 
+and 
+%
+\begin{equation}\label{statespace-latent}
+	\boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\boldsymbol{\theta}_{kl}(t-1)))
+\end{equation}
+%
+where 
+%
+$
+\theta_{kl}^S(t),
+$ 
+%
+$
+\theta_{kl}^I(t)
+$
+%
+and 
+%
+$
+\theta_{kl}^R(t)
+$
+%
+denote the probabilities of a case in row cluster $k$ and column cluster $l$ being suscepted, infected and removed, respectively, at time point $t$. We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster. 
 
-It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$.
-
-For the analysis of the coronavirus pandemic, we thus assume that there is a geographical partition of countries that are homogeneous in terms of proportion infected $y^I(t)$ and removed $y^R(t)$, and that there is a partitioning of the time points $t$ that together form homogeneous blocks.
+It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$. With this formulation of the model we further assume that there is a geographical partition of geographical regions that are homogeneous in terms of proportion infected $y^I(t)$ and removed $y^R(t)$, and that there is a partitioning of the time points $t$ that form homogeneous blocks.
 
 Now let $\alpha_k = P(Z_{ik} = 1)$ and $\beta_l = P(W_{jl} = 1)$ denote the respective row and column mixing proportions such that they both sum to 1 and 
 %
