@@ -2192,14 +2192,17 @@
     <bcf:citekey order="6">Bouveyron</bcf:citekey>
     <bcf:citekey order="7">boutalbi2020tensor</bcf:citekey>
     <bcf:citekey order="8">kermack1927contribution</bcf:citekey>
-    <bcf:citekey order="9">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="10">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="11">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="9">keeling2011modeling</bcf:citekey>
+    <bcf:citekey order="10">ramsay2017dynamic</bcf:citekey>
+    <bcf:citekey order="11">ramsay2017dynamic</bcf:citekey>
     <bcf:citekey order="12">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="13">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="13">osthus2017forecasting</bcf:citekey>
     <bcf:citekey order="14">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="15">keribin2015estimation</bcf:citekey>
-    <bcf:citekey order="16">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="15">osthus2017forecasting</bcf:citekey>
+    <bcf:citekey order="16">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="17">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="18">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="19">keribin2015estimation</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

@@ -264,6 +264,39 @@
       \field{pages}{101\bibrangedash 115}
       \range{pages}{15}
     \endentry
+    \entry{keeling2011modeling}{book}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=6ee28aa4f4453faac08243ef5af483c1}{%
+           family={Keeling},
+           familyi={K\bibinitperiod},
+           given={Matt\bibnamedelima J},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd326819b672bac0a44a56faae74d848}{%
+           family={Rohani},
+           familyi={R\bibinitperiod},
+           given={Pejman},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{ad236a387de7c74a0daa11272850ccfd}
+      \strng{fullhash}{ad236a387de7c74a0daa11272850ccfd}
+      \strng{bibnamehash}{ad236a387de7c74a0daa11272850ccfd}
+      \strng{authorbibnamehash}{ad236a387de7c74a0daa11272850ccfd}
+      \strng{authornamehash}{ad236a387de7c74a0daa11272850ccfd}
+      \strng{authorfullhash}{ad236a387de7c74a0daa11272850ccfd}
+      \field{sortinit}{K}
+      \field{sortinithash}{d3edc18d54b9438a72c24c925bfb38f4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Modeling infectious diseases in humans and animals}
+      \field{year}{2011}
+    \endentry
     \entry{keribin2015estimation}{article}{}
       \name{author}{4}{}{%
         {{un=0,uniquepart=base,hash=75fed0fb206602c465b88669b01321a8}{%
@@ -443,6 +476,39 @@
       \field{year}{2017}
       \field{pages}{202}
       \range{pages}{1}
+    \endentry
+    \entry{ramsay2017dynamic}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=82c1bfad20df6fc9b773259966b21729}{%
+           family={Ramsay},
+           familyi={R\bibinitperiod},
+           given={James},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2d5f544f57b73ede4f1b7e3946bd9607}{%
+           family={Hooker},
+           familyi={H\bibinitperiod},
+           given={Giles},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{86741ac589437ac13257675fac1a5b9b}
+      \strng{fullhash}{86741ac589437ac13257675fac1a5b9b}
+      \strng{bibnamehash}{86741ac589437ac13257675fac1a5b9b}
+      \strng{authorbibnamehash}{86741ac589437ac13257675fac1a5b9b}
+      \strng{authornamehash}{86741ac589437ac13257675fac1a5b9b}
+      \strng{authorfullhash}{86741ac589437ac13257675fac1a5b9b}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Dynamic data analysis}
+      \field{year}{2017}
     \endentry
     \entry{song2020epidemiological}{article}{}
       \name{author}{8}{}{%
