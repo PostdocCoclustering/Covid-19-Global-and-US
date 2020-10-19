@@ -107,6 +107,62 @@
       \field{pages}{897\bibrangedash 915}
       \range{pages}{19}
     \endentry
+    \entry{chretien2014influenza}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=2c949886f1a2f63a60fc59a09484a83e}{%
+           family={Chretien},
+           familyi={C\bibinitperiod},
+           given={Jean-Paul},
+           giveni={J\bibinithyphendelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=49e11041a90890468ba1c69eae713570}{%
+           family={George},
+           familyi={G\bibinitperiod},
+           given={Dylan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5ecfaa73ece12900c192ebd26039d7e6}{%
+           family={Shaman},
+           familyi={S\bibinitperiod},
+           given={Jeffrey},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c69d382d54558f744eb1215c7e412cd7}{%
+           family={Chitale},
+           familyi={C\bibinitperiod},
+           given={Rohit\bibnamedelima A},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c29499610283fc160ef8322a7cae4ae2}{%
+           family={McKenzie},
+           familyi={M\bibinitperiod},
+           given={F\bibnamedelima Ellis},
+           giveni={F\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{1ed357581d43a8040db7985b1bc56ec2}
+      \strng{fullhash}{1c7b6426c17de40d6ff628e6fd72a492}
+      \strng{bibnamehash}{1ed357581d43a8040db7985b1bc56ec2}
+      \strng{authorbibnamehash}{1ed357581d43a8040db7985b1bc56ec2}
+      \strng{authornamehash}{1ed357581d43a8040db7985b1bc56ec2}
+      \strng{authorfullhash}{1c7b6426c17de40d6ff628e6fd72a492}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PloS one}
+      \field{number}{4}
+      \field{title}{Influenza forecasting in human populations: a scoping review}
+      \field{volume}{9}
+      \field{year}{2014}
+      \field{pages}{e94130}
+      \range{pages}{-1}
+    \endentry
     \entry{corneli2020co}{article}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=d3a5931ec98c766ec98267c2b1951371}{%
@@ -385,6 +441,50 @@
       \field{pages}{700\bibrangedash 721}
       \range{pages}{22}
     \endentry
+    \entry{mills2004transmissibility}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=59e42a2ab82d9970ab4a7d20e425dad7}{%
+           family={Mills},
+           familyi={M\bibinitperiod},
+           given={Christina\bibnamedelima E},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=7a2ba958c4a9112b1e74732b9c35f016}{%
+           family={Robins},
+           familyi={R\bibinitperiod},
+           given={James\bibnamedelima M},
+           giveni={J\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=30d93188d01ed0a75284d60fdf366301}{%
+           family={Lipsitch},
+           familyi={L\bibinitperiod},
+           given={Marc},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{bb5b6ed2c70e495532d9c14ff86596fd}
+      \strng{fullhash}{bb5b6ed2c70e495532d9c14ff86596fd}
+      \strng{bibnamehash}{bb5b6ed2c70e495532d9c14ff86596fd}
+      \strng{authorbibnamehash}{bb5b6ed2c70e495532d9c14ff86596fd}
+      \strng{authornamehash}{bb5b6ed2c70e495532d9c14ff86596fd}
+      \strng{authorfullhash}{bb5b6ed2c70e495532d9c14ff86596fd}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{7019}
+      \field{title}{Transmissibility of 1918 pandemic influenza}
+      \field{volume}{432}
+      \field{year}{2004}
+      \field{pages}{904\bibrangedash 906}
+      \range{pages}{3}
+    \endentry
     \entry{nadif2010model}{inproceedings}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=a6bc7c3c64d6c8adfb8e4a1479f69e37}{%
@@ -420,6 +520,47 @@
       \field{year}{2010}
       \field{pages}{175\bibrangedash 180}
       \range{pages}{6}
+    \endentry
+    \entry{nsoesie2013forecasting}{article}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=682e095194ad038f4b84e50562fad147}{%
+           family={Nsoesie},
+           familyi={N\bibinitperiod},
+           given={Elaine},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=cd9a85cee9cc16be8298d17e18d4011b}{%
+           family={Mararthe},
+           familyi={M\bibinitperiod},
+           given={Madhav},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=08ee0ad57dc1f672d7cd5b29f51eb179}{%
+           family={Brownstein},
+           familyi={B\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Public Library of Science}%
+      }
+      \strng{namehash}{4b7c1656b073bd7177c28c86a350be48}
+      \strng{fullhash}{4b7c1656b073bd7177c28c86a350be48}
+      \strng{bibnamehash}{4b7c1656b073bd7177c28c86a350be48}
+      \strng{authorbibnamehash}{4b7c1656b073bd7177c28c86a350be48}
+      \strng{authornamehash}{4b7c1656b073bd7177c28c86a350be48}
+      \strng{authorfullhash}{4b7c1656b073bd7177c28c86a350be48}
+      \field{sortinit}{N}
+      \field{sortinithash}{98cf339a479c0454fe09153a08675a15}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{PLoS currents}
+      \field{title}{Forecasting peaks of seasonal influenza epidemics}
+      \field{volume}{5}
+      \field{year}{2013}
     \endentry
     \entry{osthus2017forecasting}{article}{}
       \name{author}{5}{}{%
@@ -509,6 +650,33 @@
       \field{labeltitlesource}{title}
       \field{title}{Dynamic data analysis}
       \field{year}{2017}
+    \endentry
+    \entry{ross1911some}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3f0db3d5d340ba086e3cacac3caaf8b0}{%
+           family={Ross},
+           familyi={R\bibinitperiod},
+           given={Ronald},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{3f0db3d5d340ba086e3cacac3caaf8b0}
+      \strng{fullhash}{3f0db3d5d340ba086e3cacac3caaf8b0}
+      \strng{bibnamehash}{3f0db3d5d340ba086e3cacac3caaf8b0}
+      \strng{authorbibnamehash}{3f0db3d5d340ba086e3cacac3caaf8b0}
+      \strng{authornamehash}{3f0db3d5d340ba086e3cacac3caaf8b0}
+      \strng{authorfullhash}{3f0db3d5d340ba086e3cacac3caaf8b0}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Some quantitative studies in epidemiology}
+      \field{year}{1911}
     \endentry
     \entry{song2020epidemiological}{article}{}
       \name{author}{8}{}{%

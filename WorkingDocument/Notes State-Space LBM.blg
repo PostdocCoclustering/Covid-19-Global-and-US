@@ -1,21 +1,21 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
-[0] Config.pm:307> INFO - Logfile is 'Notes State-Space LBM.blg'
-[84] biber-MSWIN64:322> INFO - === 
-[105] Biber.pm:415> INFO - Reading 'Notes State-Space LBM.bcf'
-[208] Biber.pm:943> INFO - Found 13 citekeys in bib section 0
-[225] Biber.pm:4256> INFO - Processing section 0
-[225] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
-[236] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
-[253] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
-[267] bibtex.pm:1653> INFO - LaTeX decoding ...
-[352] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
-[441] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[441] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[441] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
-[476] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[476] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[476] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[476] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[493] bbl.pm:652> INFO - Writing 'Notes State-Space LBM.bbl' with encoding 'UTF-8'
-[507] bbl.pm:755> INFO - Output to Notes State-Space LBM.bbl
-[514] Biber.pm:128> INFO - WARNINGS: 3
+[1] Config.pm:307> INFO - Logfile is 'Notes State-Space LBM.blg'
+[193] biber-MSWIN64:322> INFO - === 
+[223] Biber.pm:415> INFO - Reading 'Notes State-Space LBM.bcf'
+[348] Biber.pm:943> INFO - Found 17 citekeys in bib section 0
+[367] Biber.pm:4256> INFO - Processing section 0
+[368] Utils.pm:75> INFO - Globbing data source 'bibliography.bib'
+[379] Utils.pm:91> INFO - Globbed data source 'bibliography.bib' to bibliography.bib
+[399] Biber.pm:4455> INFO - Looking for bibtex format file 'bibliography.bib' for section 0
+[418] bibtex.pm:1653> INFO - LaTeX decoding ...
+[558] bibtex.pm:1471> INFO - Found BibTeX data source 'bibliography.bib'
+[730] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[730] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[731] Utils.pm:304> WARN - BibTeX subsystem: warning: comma(s) at end of name (removing)
+[821] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[822] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[822] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[822] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[859] bbl.pm:652> INFO - Writing 'Notes State-Space LBM.bbl' with encoding 'UTF-8'
+[877] bbl.pm:755> INFO - Output to Notes State-Space LBM.bbl
+[884] Biber.pm:128> INFO - WARNINGS: 3

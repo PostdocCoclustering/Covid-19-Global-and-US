@@ -38,16 +38,18 @@
 
 The latent block model \parencite{govaert2003clustering} is a commonly used model for co-clustering of large data matrices. It is a model-based approach that assumes that the rows and columns of the data matrix can be arranged according to latent row and column clusters. It has been extended to cover the case of counting data \parencite{govaert2010latent}, continuous data \parencite{nadif2010model}, categorical data \parencite{keribin2015estimation}, ordinal data \parencite{jacques2018model, corneli2020co}, functional data \parencite{Bouveyron}  and tensor data \parencite{boutalbi2020tensor}. In this work, the latent block model is extended in two ways: first by covering time-series data of proportions, and secondly by being integrated with the SIR model \parencite{kermack1927contribution}, commonly used in the analysis of disease spread.
 
-The class of SIR models are used to describe the spread of disease in a population. For a review of infective disease modeling, see \cite{keeling2011modeling}. For the simplest case of the SIR model, a population of susceptible cases $\theta^S_t$ are exposed to a fraction $\theta^I_t$ of the population that are infected at time point $t$. As a consequence, a part of the susceptible cases will be transferred to the group of removed cases, denoted $\theta^R_t$. The removed cases consist of both recovered and dead cases, and once a case enter this group there is no possibility to enter the group of susceptible and infected again. Following from this definition, $\theta^S + \theta^I + \theta^R = 1$ for all $t \in [0,T]$ and $\theta^S, \theta^I, \theta^R > 0$. This dynamic system is described by the following differential equations: 
+The class of SIR models are used to describe the spread of disease in a population. For a review of infective disease modeling, see \cite{keeling2011modeling}. Compartmental models such as the SIR model has been used for modeling of infective disease for more than a 100 years \parencite{ross1911some}, and have historically been used to e.g. understand disease transmission dynamics \parencite{mills2004transmissibility}. With the 2020 coronavirus pandemic, attention has been focused on forecasting. Special attention has been given to key outbreak measures like peak intensity and the timing of such intensity. With accurate estimates of these quantities, policy makers have the opportunity to make informed decisions on allocation of resources, implementation of interventions and communication to the public \parencite{chretien2014influenza, nsoesie2013forecasting}. For the simplest case of the SIR model, a population of susceptible cases $S(t)$ are exposed to a fraction $I(t)$ of the population that are infected at time point $t$. As a consequence, a part of the susceptible cases will be transferred to the group of removed cases, denoted $R(t)$. The removed cases consist of both recovered and dead cases, and once a case enter this group there is no possibility to enter the group of susceptible and infected again. Following from this definition, $S(t) + I(t) + R(t) = 1$ for all $t \in [0,T]$ and $S(t), I(t), R(t) > 0$. This dynamic system is described by the following differential equations: 
 %
 \begin{equation}\label{SIR}
-	\frac{d\theta_t^S}{dt} = -\rho\theta_t^S\theta_t^I, \quad \frac{d\theta_t^I}{dt} = \rho\theta_t^S\theta_t^I - \gamma \theta_t^I, \quad \frac{d\theta_t^R}{dt} = \gamma \theta_t^I,
+	\frac{dS(t)}{dt} = -\rho S(t)I(t), \quad \frac{dI(t)}{dt} = \rho S(t)I(t) - \gamma I(t), \quad \frac{dR(t)}{dt} = \gamma I(t),
 \end{equation}
 %
 where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The model in (\ref{SIR}) describes the transport of cases between the three groups of susceptible, infected and removed individuals. It is therefore often called a compartmental model \parencite{ramsay2017dynamic}. Note that although the transmission rate $\rho$ is constant, the rate of transport between the group of susceptible and infected cases does depend on time since the number of susceptible cases decreases as the number of infected increases. This follows from the fact that the total group of susceptible, infected and removed cases at all times equals the total population. Note also that the SIR model implicitly assumes that the cases are mixed freely with the entire population \parencite{ramsay2017dynamic}.
 
 \section{The Extended SIR Model}
-To specify the suggested State-Space Latent Block Model (SS-LBM), we introduce the following notation: 
+Compartmental models like the SIR model are purely deterministic, but recently, several probabilistic models that resembles compartmental models have been suggested. One of the most recent proposals is given in \cite{osthus2017forecasting}, where a state-space model motivated by the SIR is presented, where inference and forecasting is conducted under a Bayesian setting. In \cite{song2020epidemiological}, the model was extended to cover multivariate time-series, and a time-varying transmission rate. In the following, this model will be referred to as the extended SIR (eSIR) model. 
+
+To specify the state-space formulation of the eSIR model we introduce the following notation: 
 %
 $
 \mathbf{y} = (\mathbf{y}_{it}, i = 1, \ldots, n; t = 1, \ldots T) 
@@ -83,7 +85,7 @@ $
 \theta_t^S, \theta_t^I, \theta_t^R > 0
 $
 %
-for all $t \in [0, T]$ \parencite{osthus2017forecasting}. We will take the same approach as in \cite{osthus2017forecasting} and \cite{song2020epidemiological} and assume that 
+for all $t \in [0, T]$ \parencite{osthus2017forecasting}. It is assumed that 
 %
 $
 \boldsymbol{\theta}_{0:T} = (\boldsymbol{\theta}_0, \boldsymbol{\theta}_1, \ldots, \boldsymbol{\theta}_T)
@@ -95,11 +97,12 @@ $
 g(\boldsymbol{\theta}_t|\boldsymbol{\theta}_{0:(t-1)}) = g(\boldsymbol{\theta}_t|\boldsymbol{\theta}_{t-1}) \, \forall t \in [0:T]. 
 $
 %
-Specifically, the extended SIR model as suggested by \cite{osthus2017forecasting} and extended by \cite{song2020epidemiological}, assumes the following model for $\boldsymbol{\theta}$:
+Specifically, the following model for $\boldsymbol{\theta}$ is adopted:
 %
 $$
 \boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\boldsymbol{\theta}_{t-1})),
 $$
+%
 where $\boldsymbol{\Omega}_1$ denotes the set of model parameters, $\kappa$ scales the variance of the Dirichlet distribution, and the function $f(\cdot)$ is a 3-dimensional vector that sets the mean of the Dirichlet distribution. The form of the function $f(\cdot)$ will be presented in what follows. For the observed data $\mathbf{y}$, \cite{song2020epidemiological} make the following distributional assumptions,  
 %
 \begin{equation}\label{statespace}
@@ -122,7 +125,7 @@ $
 %
 where $\lambda^I$ scales the variance in each respective distribution of $y_i^I(t)$ and $y_i^R(t)$.
 
-The extended SIR model thus considers a bivariate stochastic process $\{\boldsymbol{\theta}_t, \mathbf{y}_t\}$ that is modeled using a state-space model: $\boldsymbol{\theta}_t$ is the underlying, latent process that guides the observed data $\boldsymbol{y}_t = (y_i^I(t), y_i^R(t))$. This can be graphically summarized as
+The eSIR model thus considers a bivariate stochastic process $\{\boldsymbol{\theta}_t, \mathbf{y}_t\}$ that is modeled using a state-space model: $\boldsymbol{\theta}_t$ is the underlying, latent process that guides the observed data $\boldsymbol{y}_t = (y_i^I(t), y_i^R(t))$. This can be graphically summarized as
 
 
 \begin{figure}[H]
@@ -270,7 +273,7 @@ and
 
 
 \section{The State-Space Latent Block Model}
-Both the SIR model and the eSIR model assumes that the population of cases are freely mixed in the population, although in many real situations that mixing might only take place at certain geographical regions. Moreover, although the eSIR allows for a varying transmission rate $\rho$, the modifier function $\phi(t)$ needs to be defined by the modeler. With a pandemic like the 2020 coronavirus, the modifier function would furthermore differs between different geographical regions. With the aim to increase predictive accuracy, we address these issues by incorporating into the eSIR model a latent block model component, presented in the following. 
+Both the SIR model and the eSIR model assume that the population of cases are freely mixed in the population, although in many real situations the mixing of a specific group of cases might have geographical limitations. Moreover, although the eSIR allows for a varying transmission rate $\rho$, the modifier function $\phi(t)$ needs to be defined by the modeler. With a pandemic like the 2020 coronavirus, the modifier function would furthermore differ between different geographical regions. With the aim to increase predictive accuracy, we address these issues by incorporating into the eSIR model a latent block model component, presented in the following. The general idea is to simultaneously identify row clusters of geographical regions and column clusters of time points, and then re-define the eSIR model on these identified block clusters. In this way we will both be able to make forecasts on geographical regions identified by the row clusters, and estimate the transmission modifier $\pi(t)$ with data by setting it according to the estimated column clusters.
  
 With $n$ geographical regions measured on $T$ time points, the data matrix $\mathbf{y}$ that we wish to co-cluster equals
 %
@@ -283,7 +286,6 @@ $$
 \end{bmatrix}
 $$
 %
-
 Following the latent block model, we assume that there is a partition ($Z, W$) of the data matrix $\mathbf{y}$, where $Z = (z_{ik}; , i=1,\ldots, n, \: k = 1,\ldots, K)$ represents the partitioning into $K$ clusters on the $n$ rows and $W = (w_{tl}; t=1,\ldots, T, \: l=1,\ldots, L)$ represents the partitioning into $L$ clusters on the $T$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
 
 Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{it}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. Specifically, we assume that 
@@ -318,7 +320,7 @@ $
 \theta_{kl}^R(t)
 $
 %
-denote the probabilities of a case in row cluster $k$ and column cluster $l$ being susceptible, infected and removed, respectively, at time point $t$. We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster. 
+denote the probabilities of a case in row cluster $k$ and column cluster $l$ being susceptible, infected and removed, respectively, at time point $t$. We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster, that in turn is distributed according to a Beta distribution. 
 
 It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$. With this formulation of the model we further assume that there is a partition of geographical regions that are homogeneous in terms of proportion infected $y^I(t)$ and removed $y^R(t)$, and that there is a partitioning of the time points $t$ that form homogeneous blocks.
 

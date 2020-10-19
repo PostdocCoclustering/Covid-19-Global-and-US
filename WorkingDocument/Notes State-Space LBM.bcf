@@ -2193,16 +2193,18 @@
     <bcf:citekey order="7">boutalbi2020tensor</bcf:citekey>
     <bcf:citekey order="8">kermack1927contribution</bcf:citekey>
     <bcf:citekey order="9">keeling2011modeling</bcf:citekey>
-    <bcf:citekey order="10">ramsay2017dynamic</bcf:citekey>
-    <bcf:citekey order="11">ramsay2017dynamic</bcf:citekey>
-    <bcf:citekey order="12">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="13">osthus2017forecasting</bcf:citekey>
-    <bcf:citekey order="14">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="10">ross1911some</bcf:citekey>
+    <bcf:citekey order="11">mills2004transmissibility</bcf:citekey>
+    <bcf:citekey order="12">chretien2014influenza</bcf:citekey>
+    <bcf:citekey order="12">nsoesie2013forecasting</bcf:citekey>
+    <bcf:citekey order="13">ramsay2017dynamic</bcf:citekey>
+    <bcf:citekey order="14">ramsay2017dynamic</bcf:citekey>
     <bcf:citekey order="15">osthus2017forecasting</bcf:citekey>
     <bcf:citekey order="16">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="17">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="18">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="17">osthus2017forecasting</bcf:citekey>
+    <bcf:citekey order="18">song2020epidemiological</bcf:citekey>
     <bcf:citekey order="19">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="20">keribin2015estimation</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

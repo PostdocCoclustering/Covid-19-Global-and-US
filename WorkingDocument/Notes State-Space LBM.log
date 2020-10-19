@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  19 OCT 2020 14:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  19 OCT 2020 16:48
 entering extended mode
 **"./Notes State-Space LBM.tex"
 ("Notes State-Space LBM.tex"
@@ -884,34 +884,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Gabriel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (0.69711pt too wide) in paragraph at lines 125--126
-[]\T1/cmr/m/n/10 The ex-tended SIR model thus con-sid-ers a bi-vari-ate stochas
--tic pro-cess $\OMS/cmsy/m/n/10 f[][]\OML/cmm/m/it/10 ; \OT1/cmr/bx/n/10 y[]\OM
-S/cmsy/m/n/10 g$
- []
-
+[2]
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-34.
+37.
+
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Overfull \hbox (49.509pt too wide) in paragraph at lines 177--178
+Overfull \hbox (49.509pt too wide) in paragraph at lines 180--181
  [][] 
  []
 
-[2] [3] [4] [5] [6] [7] [8] ("Notes State-Space LBM.aux")
+[3] [4] [5] [6] [7] [8] ("Notes State-Space LBM.aux")
 Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
 \openout1 = `"Notes State-Space LBM.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21691 strings out of 481568
- 439515 string characters out of 2913334
- 1033042 words of memory out of 3000000
- 36552 multiletter control sequences out of 15000+200000
+ 21706 strings out of 481568
+ 440016 string characters out of 2913334
+ 1033342 words of memory out of 3000000
+ 36567 multiletter control sequences out of 15000+200000
  553959 words of font info for 83 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,15n,84p,982b,1450s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 60i,15n,84p,1604b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
 pen/ec/dpi600\ecss0900.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
@@ -942,9 +938,9 @@ ers/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmsy7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on "Notes State-Space LBM.pdf" (8 pages, 271519 bytes).
+Output written on "Notes State-Space LBM.pdf" (8 pages, 274715 bytes).
 PDF statistics:
- 339 PDF objects out of 1000 (max. 8388607)
+ 341 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
