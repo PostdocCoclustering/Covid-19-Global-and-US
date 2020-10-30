@@ -5,17 +5,13 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage{tikz}
+%\usepackage{tikz}
 \usepackage{float}
 \usepackage{tikz-cd}
 
-
-\usetikzlibrary{calc,arrows.meta,positioning}
-
-\tikzset{
-	every node/.style={font=\sffamily\small},
-	main node/.style={thick,circle,draw,font=\sffamily\Large}
-}
+\newcommand{\ImageWidth}{11cm}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,positioning, arrows.meta}
 
 \usepackage[backend = biber, style=bwl-FU]{biblatex}
 \addbibresource{bibliography.bib}
@@ -47,27 +43,21 @@ The class of SIR models are used to describe the spread of disease in a populati
 where $\rho > 0$ is the transmission rate of the disease, and $\gamma > 0$ is the rate of recovery. The model in (\ref{SIR}) describes the transport of cases between the three groups of susceptible, infected and removed individuals. It is therefore often called a compartmental model \parencite{ramsay2017dynamic}. Note that although the transmission rate $\rho$ is constant, the rate of transport between the group of susceptible and infected cases does depend on time since the number of susceptible cases decreases as the number of infected increases. This follows from the fact that the total group of susceptible, infected and removed cases at all times equals the total population. Note also that the SIR model implicitly assumes that the cases are mixed freely with the entire population \parencite{ramsay2017dynamic}.
 
 \section{The Extended SIR Model}
-Compartmental models like the SIR model are purely deterministic, but recently, several probabilistic models that resembles compartmental models have been suggested. One of the most recent proposals is given in \cite{osthus2017forecasting}, where a state-space model motivated by the SIR is presented, where inference and forecasting is conducted under a Bayesian setting. In \cite{song2020epidemiological}, the model was extended to cover multivariate time-series, and a time-varying transmission rate. In the following, this model will be referred to as the extended SIR (eSIR) model. 
+Compartmental models like the SIR model are purely deterministic, but recently, several probabilistic versions of such models have been suggested. One of the most recent proposals is given in \cite{osthus2017forecasting}, where a state-space model motivated by the SIR model is presented, where inference and forecasting is conducted under a Bayesian setting. In \cite{song2020epidemiological}, the model was extended to cover multivariate time-series, and a time-varying transmission rate. In the following, this model will be referred to as the extended SIR (eSIR) model. 
 
 To specify the state-space formulation of the eSIR model we introduce the following notation: 
 %
 $
-\mathbf{y} = (\mathbf{y}_{it}, i = 1, \ldots, n; t = 1, \ldots T) 
+\mathbf{y} = (\mathbf{y}_{i}(t), i = 1, \ldots, n; t = 1, \ldots T) 
 $
 %
-denotes the data matrix which is a multivariate time series:  
+denotes the data matrix which is a multivariate time series. In the context of analyzing the 2020 coronavirus pandemic, 
 %
 $
-\mathbf{y}_{it} = (y_{i}^1(t), \ldots, y_{i}^S(t))
-$ 
-%
-where $t \in [0, T]$. In the context of analyzing the 2020 coronavirus pandemic, 
-%
-$
-\mathbf{y}_{it} = (y_{i}^I(t), y_{i}^R(t))^\top
+\mathbf{y}_{i}(t) = (y_{i}^I(t), y_{i}^R(t))^\top
 $
 %
-where $y_{i}^I(t)$ and $y_{i}^R(t)$ denote the proportion of infected and removed (recovered or dead) by the virus, respectively, at time point $t$. The index $i$ denotes a geographical region, like for example country or state. Further, let  
+where $y_{i}(t)^I$ and $y_{i}(t)^R$ denote the proportion of infected and removed (recovered or dead) by the virus, respectively, at time point $t$. The index $i$ denotes a geographical region, like for example country or state. Further, let  
 %
 $
 \boldsymbol{\theta} = (\theta_t^S, \theta_t^I, \theta_t^R)^\top,
@@ -128,7 +118,7 @@ where $\lambda^I$ scales the variance in each respective distribution of $y_i^I(
 The eSIR model thus considers a bivariate stochastic process $\{\boldsymbol{\theta}_t, \mathbf{y}_t\}$ that is modeled using a state-space model: $\boldsymbol{\theta}_t$ is the underlying, latent process that guides the observed data $\boldsymbol{y}_t = (y_i^I(t), y_i^R(t))$. This can be graphically summarized as
 
 
-\begin{figure}[H]
+\begin{figure}[H]\label{HMM}
 	\centering
 	\begin{tikzpicture}
 		\tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
@@ -178,6 +168,7 @@ The eSIR model thus considers a bivariate stochastic process $\{\boldsymbol{\the
 		\draw[] (-0.5,-2.5) rectangle (3,1);
 		
 	\end{tikzpicture}
+\caption{Visualization of the eSIR model.}
 \end{figure}
 
 Regarding the function $f(\cdot)$, it is the solution to the dynamic system
@@ -273,7 +264,7 @@ and
 
 
 \section{The State-Space Latent Block Model}
-Both the SIR model and the eSIR model assume that the population of cases are freely mixed in the population, although in many real situations the mixing of a specific group of cases might have geographical limitations. Moreover, although the eSIR allows for a varying transmission rate $\rho$, the modifier function $\phi(t)$ needs to be defined by the modeler. With a pandemic like the 2020 coronavirus, the modifier function would furthermore differ between different geographical regions. With the aim to increase predictive accuracy, we address these issues by incorporating into the eSIR model a latent block model component, presented in the following. The general idea is to simultaneously identify row clusters of geographical regions and column clusters of time points, and then re-define the eSIR model on these identified block clusters. In this way we will both be able to make forecasts on geographical regions identified by the row clusters, and estimate the transmission modifier $\pi(t)$ with data by setting it according to the estimated column clusters.
+Both the SIR model and the eSIR model assume that the population of cases are freely mixed in the population, although in many real situations the mixing of a specific group of cases might have geographical limitations. Moreover, although the eSIR allows for a varying transmission rate $\rho$, the modifier function $\phi(t)$ needs to be defined by the modeler. With a pandemic like the 2020 coronavirus, the modifier function would furthermore differ between different geographical regions. With the aim to increase predictive accuracy, we address these issues by incorporating into the eSIR model a latent block model component, presented in the following. The general idea is to simultaneously identify row clusters of geographical regions and column clusters of time points in the data matrix $\mathbf{y}$, and then re-define the eSIR model on these identified block clusters. In this way we will both be able to make forecasts on geographical regions identified by the row clusters, and estimate the transmission modifier $\pi(t)$ with data by setting it according to the estimated column clusters.
  
 With $n$ geographical regions measured on $T$ time points, the data matrix $\mathbf{y}$ that we wish to co-cluster equals
 %
@@ -286,41 +277,74 @@ $$
 \end{bmatrix}
 $$
 %
-Following the latent block model, we assume that there is a partition ($Z, W$) of the data matrix $\mathbf{y}$, where $Z = (z_{ik}; , i=1,\ldots, n, \: k = 1,\ldots, K)$ represents the partitioning into $K$ clusters on the $n$ rows and $W = (w_{tl}; t=1,\ldots, T, \: l=1,\ldots, L)$ represents the partitioning into $L$ clusters on the $T$ columns. In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{jl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
+Following the latent block model, we assume that there is a partition ($Z, W$) of the data matrix $\mathbf{y}$, where $Z = (z_{ik}; , i=1,\ldots, n, \: k = 1,\ldots, K)$ represents the partitioning into $K$ clusters on the $n$ rows and $W = (w_{tl}; t=1,\ldots, T, \: l=1,\ldots, L)$ represents the partitioning into $L$ clusters on the $T$ measured time-points (columns). In other words, $Z_{ik}$, $k = 1,..., K$ and $W_{tl}$, $l = 1,..., L$ are binary matrices for which $Z_{ik} = 1$ if case $i$ belongs to row cluster $k$ and $0$ otherwise, and $W_{tl} = 1$ if time point $t$ belongs to column cluster $l$ and $0$ otherwise. The random matrices $Z$ and $W$ therefore are of dimension $n \times K$ and $T \times L$, respectively. 
 
-Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{it}$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. Specifically, we assume that 
+Co-clustering will yield subgroups, called blocks, such that $Z_{ik} W_{tl} = 1$. Each element $\mathbf{y}_{i}(t)$ in $\mathbf{y}$ belongs to a block which is generated by a probability distribution. In this study it is assumed that $y_{i}^I(t)$ and $y_{i}^R(t)$ follow Beta distributions, meaning that these block distributions are given by the distributions specified by Equation \ref{statespace}. Specifically, we assume that for a geographical region $i$ belonging to row cluster $k$ and a time-point $t$ belonging to column cluster $l$, the block $Z_{ik}W_{jl}$ is generated by the following distributions: 
 %
 \begin{equation}\label{statespace-observed}
 	\begin{aligned}
-		y_{i}^I(t) | Z_{ik}W_{jl} = 1, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_{kl}^I(t), \lambda^I(1 - \theta_{kl}^I(t)) \\
+		y_{i}^I | Z_{ik}W_{jl} = 1, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^I \theta_{kl}^I, \lambda^I(1 - \theta_{kl}^I) \\
 		%
-		y_{i}^R(t) | Z_{ik}W_{jl} = 1, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_{kl}^R(t), \lambda^R(1 - \theta_{kl}^R(t))
+		y_{i}^R | Z_{ik}W_{jl} = 1, \boldsymbol{\Omega}_1 \sim \text{Beta}(\lambda^R \theta_{kl}^R, \lambda^R(1 - \theta_{kl}^R)
 	\end{aligned}
 \end{equation}
 % 
-and 
+%and 
 %
-\begin{equation}\label{statespace-latent}
-	\boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\boldsymbol{\theta}_{kl}(t-1)))
-\end{equation}
+%\begin{equation}\label{statespace-latent}
+%	\boldsymbol{\theta}_t | \boldsymbol{\theta}_{t-1}, \boldsymbol{\Omega}_1 \sim \text{Dirichlet}(\kappa f(\boldsymbol{\theta}_{kl}(t-1)))
+%\end{equation}
 %
-where 
-%
-$
-\theta_{kl}^S(t),
-$ 
+where  
 %
 $
-\theta_{kl}^I(t)
+\theta_{kl}^I
 $
 %
 and 
 %
 $
-\theta_{kl}^R(t)
+\theta_{kl}^R
 $
 %
-denote the probabilities of a case in row cluster $k$ and column cluster $l$ being susceptible, infected and removed, respectively, at time point $t$. We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster, that in turn is distributed according to a Beta distribution. 
+denote the probabilities of a case in row cluster $k$ and column cluster $l$ being infected and removed, respectively. Regarding the state process, we are going to deviate from the eSIR model and the Dirichlet distribution. The reason is that $\theta_{kl}$ is now guiding the observed data, and the time clusters are allowed to re-appear in the time interval. To illustrate that idea, consider the following figure.
+
+\begin{tikzpicture}
+	% draw horizontal line   
+	\draw[ultra thick, ->] (0,0) -- (\ImageWidth,0);
+	
+	% draw vertical lines
+	\foreach \x in {2,4,6,8,10}
+	\draw (\x cm,3pt) -- (\x cm,-3pt);
+	
+	% draw node
+	\draw[ultra thick] (2,0) node[below=3pt,thick] {t-2} node[above=3pt] {};
+	\draw[ultra thick] (4,0) node[below=3pt,thick] {t-1} node[above=3pt] {};
+	\draw[ultra thick] (6,0) node[below=3pt, thick] {t} node[above=3pt] {};
+	\draw[ultra thick] (8,0) node[below=3pt] {t+1} node[above=3pt] {};
+	\draw[ultra thick] (10,0) node[below=3pt] {t+2} node[above=3pt] {};
+	
+	\draw [black, ultra thick ,decorate,decoration={brace,amplitude=5pt},
+	xshift=5pt,yshift=-4pt] (2,0.5)  -- (4,0.5) 
+	node [black,midway,above=4pt,xshift=-2pt] {\footnotesize Cluster 1};
+	
+	\draw [ black, ultra thick,decorate,decoration={brace,amplitude=5pt},
+	xshift=8pt,yshift=-11pt] (6,-0.5) -- (4,-0.5)
+	node [black,midway,below=4pt,xshift=8pt] {\footnotesize Cluster 2};
+	
+	\draw [ black, ultra thick,decorate,decoration={brace,amplitude=5pt},
+	xshift=5pt,yshift=-4pt] (6,0.5) -- (8,0.5)
+	node [black,midway,above=4pt,xshift=-2pt] {\footnotesize Cluster 1};
+	
+	\draw [ black, ultra thick,decorate,decoration={brace,amplitude=5pt},
+	xshift=8pt,yshift=-11pt] (10,-0.5) -- (8,-0.5)
+	node [black,midway,below=4pt,xshift=8pt] {\footnotesize Cluster 3};
+	
+\end{tikzpicture}
+
+According to the figure, the first (column) cluster equals the time period between $t-2$ and $t-1$. The next period of time belongs to cluster 2, men for the next time period after that, we are back with Cluster 1 again. This is not possible with the Dirichlet distribution.  
+
+We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster, that in turn is distributed according to a Beta distribution. 
 
 It is assumed that $Z$ and $W$ are independent from each other and that the random variables $\mathbf{y}$ are independent conditional on $Z$ and $W$. With this formulation of the model we further assume that there is a partition of geographical regions that are homogeneous in terms of proportion infected $y^I(t)$ and removed $y^R(t)$, and that there is a partitioning of the time points $t$ that form homogeneous blocks.
 

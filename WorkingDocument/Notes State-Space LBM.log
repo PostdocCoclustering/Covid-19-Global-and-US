@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  19 OCT 2020 16:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  29 OCT 2020 23:58
 entering extended mode
 **"./Notes State-Space LBM.tex"
 ("Notes State-Space LBM.tex"
@@ -139,6 +139,18 @@ File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
 \Gin@req@height=\dimen144
 \Gin@req@width=\dimen145
 )
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count187
+\float@exts=\toks22
+\float@box=\box47
+\@float@everytoks=\toks23
+\@floatcapt=\box48
+)
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tikz-cd\tikz-cd.
+sty"
+Package: tikz-cd 2018/11/19 v0.9f Commutative diagrams with TikZ
+
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlaye
 r\tikz.sty"
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\p
@@ -147,7 +159,7 @@ gf.sty"
 frcs.sty"
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
 pgfutil-common.tex"
-\pgfutil@everybye=\toks22
+\pgfutil@everybye=\toks24
 \pgfutil@tempdima=\dimen146
 \pgfutil@tempdimb=\dimen147
 
@@ -155,7 +167,7 @@ pgfutil-common.tex"
 pgfutil-common-lists.tex"))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
 pgfutil-latex.def"
-\pgfutil@abb=\box47
+\pgfutil@abb=\box49
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
 Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
@@ -178,12 +190,12 @@ Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
 pgfkeys.code.tex"
-\pgfkeys@pathtoks=\toks23
-\pgfkeys@temptoks=\toks24
+\pgfkeys@pathtoks=\toks25
+\pgfkeys@temptoks=\toks26
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\
 pgfkeysfiltered.code.tex"
-\pgfkeys@tmptoks=\toks25
+\pgfkeys@tmptoks=\toks27
 ))
 \pgf@x=\dimen148
 \pgf@y=\dimen149
@@ -197,14 +209,14 @@ pgfkeysfiltered.code.tex"
 \pgf@yd=\dimen157
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count187
-\c@pgf@countb=\count188
-\c@pgf@countc=\count189
-\c@pgf@countd=\count190
-\t@pgf@toka=\toks26
-\t@pgf@tokb=\toks27
-\t@pgf@tokc=\toks28
-\pgf@sys@id@count=\count191
+\c@pgf@counta=\count188
+\c@pgf@countb=\count189
+\c@pgf@countc=\count190
+\c@pgf@countd=\count191
+\t@pgf@toka=\toks28
+\t@pgf@tokb=\toks29
+\t@pgf@tokc=\toks30
+\pgf@sys@id@count=\count192
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlaye
 r\pgf.cfg"
@@ -223,8 +235,8 @@ File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlaye
 r\pgfsyssoftpath.code.tex"
 File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfsyssoftpath@smallbuffer@items=\count192
-\pgfsyssoftpath@bigbuffer@items=\count193
+\pgfsyssoftpath@smallbuffer@items=\count193
+\pgfsyssoftpath@bigbuffer@items=\count194
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlaye
 r\pgfsysprotocol.code.tex"
@@ -262,11 +274,11 @@ thutil.code.tex")
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
 thparser.code.tex"
 \pgfmath@dimen=\dimen158
-\pgfmath@count=\count194
-\pgfmath@box=\box48
-\pgfmath@toks=\toks29
-\pgfmath@stack@operand=\toks30
-\pgfmath@stack@operation=\toks31
+\pgfmath@count=\count195
+\pgfmath@box=\box50
+\pgfmath@toks=\toks31
+\pgfmath@stack@operand=\toks32
+\pgfmath@stack@operation=\toks33
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
 thfunctions.code.tex"
@@ -288,7 +300,7 @@ thfunctions.misc.code.tex")
 thfunctions.integerarithmetics.code.tex")))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfma
 thfloat.code.tex"
-\c@pgfmathroundto@lastzeros=\count195
+\c@pgfmathroundto@lastzeros=\count196
 ))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfin
 t.code.tex")
@@ -325,10 +337,10 @@ File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer
 \pgfcorescopes.code.tex"
 File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfpic=\box49
-\pgf@hbox=\box50
-\pgf@layerbox@main=\box51
-\pgf@picture@serial@count=\count196
+\pgfpic=\box51
+\pgf@hbox=\box52
+\pgf@layerbox@main=\box53
+\pgf@picture@serial@count=\count197
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer
 \pgfcoregraphicstate.code.tex"
@@ -363,8 +375,8 @@ File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfcoreshade.code.tex"
 File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgf@max=\dimen182
-\pgf@sys@shading@range@num=\count197
-\pgf@shadingcount=\count198
+\pgf@sys@shading@range@num=\count198
+\pgf@shadingcount=\count199
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer
 \pgfcoreimage.code.tex"
@@ -373,7 +385,7 @@ File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer
 \pgfcoreexternal.code.tex"
 File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfexternal@startupbox=\box52
+\pgfexternal@startupbox=\box54
 ))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer
 \pgfcorelayers.code.tex"
@@ -394,7 +406,7 @@ File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pg
 fmoduleshapes.code.tex"
 File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfnodeparttextbox=\box53
+\pgfnodeparttextbox=\box55
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pg
 fmoduleplot.code.tex"
@@ -428,8 +440,8 @@ Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
 th.code.tex")
 \pgffor@iter=\dimen185
 \pgffor@skip=\dimen186
-\pgffor@stack=\toks32
-\pgffor@toks=\toks33
+\pgffor@stack=\toks34
+\pgffor@toks=\toks35
 ))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
 yer/tikz\tikz.code.tex"
@@ -438,7 +450,7 @@ Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries\
 pgflibraryplothandlers.code.tex"
 File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgf@plot@mark@count=\count199
+\pgf@plot@mark@count=\count266
 \pgfplotmarksize=\dimen187
 )
 \tikz@lastx=\dimen188
@@ -449,40 +461,28 @@ File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \tikz@lastmovetoy=\dimen193
 \tikzleveldistance=\dimen194
 \tikzsiblingdistance=\dimen195
-\tikz@figbox=\box54
-\tikz@figbox@bg=\box55
-\tikz@tempbox=\box56
-\tikz@tempbox@bg=\box57
-\tikztreelevel=\count266
-\tikznumberofchildren=\count267
-\tikznumberofcurrentchild=\count268
-\tikz@fig@count=\count269
+\tikz@figbox=\box56
+\tikz@figbox@bg=\box57
+\tikz@tempbox=\box58
+\tikz@tempbox@bg=\box59
+\tikztreelevel=\count267
+\tikznumberofchildren=\count268
+\tikznumberofcurrentchild=\count269
+\tikz@fig@count=\count270
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pg
 fmodulematrix.code.tex"
 File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
-\pgfmatrixcurrentrow=\count270
-\pgfmatrixcurrentcolumn=\count271
-\pgf@matrix@numberofcolumns=\count272
+\pgfmatrixcurrentrow=\count271
+\pgfmatrixcurrentcolumn=\count272
+\pgf@matrix@numberofcolumns=\count273
 )
-\tikz@expandcount=\count273
+\tikz@expandcount=\count274
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
 yer/tikz/libraries\tikzlibrarytopaths.code.tex"
 File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )))
-("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/float\float.sty"
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count274
-\float@exts=\toks34
-\float@box=\box58
-\@float@everytoks=\toks35
-\@floatcapt=\box59
-)
-("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tikz-cd\tikz-cd.
-sty"
-Package: tikz-cd 2018/11/19 v0.9f Commutative diagrams with TikZ
-
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tikz-cd\tikzlibr
 arycd.code.tex"
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
@@ -502,9 +502,24 @@ File: pgflibraryarrows.meta.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 \pgfarrowlinewidth=\dimen199
 )))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
-yer/tikz/libraries\tikzlibrarycalc.code.tex"
-File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+yer/tikz/libraries\tikzlibrarydecorations.pathreplacing.code.tex"
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
+yer/tikz/libraries\tikzlibrarydecorations.code.tex"
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pg
+fmoduledecorations.code.tex"
+\pgfdecoratedcompleteddistance=\dimen256
+\pgfdecoratedremainingdistance=\dimen257
+\pgfdecoratedinputsegmentcompleteddistance=\dimen258
+\pgfdecoratedinputsegmentremainingdistance=\dimen259
+\pgf@decorate@distancetomove=\dimen260
+\pgf@decorate@repeatstate=\count275
+\pgfdecorationsegmentamplitude=\dimen261
+\pgfdecorationsegmentlength=\dimen262
 )
+\tikz@lib@dec@box=\box60
+)
+("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries/
+decorations\pgflibrarydecorations.pathreplacing.code.tex"))
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendla
 yer/tikz/libraries\tikzlibrarypositioning.code.tex"
 File: tikzlibrarypositioning.code.tex 2020/01/08 v3.1.5b (3.1.5b)
@@ -537,7 +552,7 @@ Package pdftexcmds Info: \pdfdraftmode found.
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/etoolbox\etoolbo
 x.sty"
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count275
+\etb@tempcnta=\count276
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/kvoptions\kvopti
 ons.sty"
@@ -550,7 +565,7 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/logreq\logreq.st
 y"
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count276
+\lrq@indent=\count277
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/logreq\logreq.de
 f"
@@ -562,47 +577,47 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-\c@tabx@nest=\count277
-\c@listtotal=\count278
-\c@listcount=\count279
-\c@liststart=\count280
-\c@liststop=\count281
-\c@citecount=\count282
-\c@citetotal=\count283
-\c@multicitecount=\count284
-\c@multicitetotal=\count285
-\c@instcount=\count286
-\c@maxnames=\count287
-\c@minnames=\count288
-\c@maxitems=\count289
-\c@minitems=\count290
-\c@citecounter=\count291
-\c@maxcitecounter=\count292
-\c@savedcitecounter=\count293
-\c@uniquelist=\count294
-\c@uniquename=\count295
-\c@refsection=\count296
-\c@refsegment=\count297
-\c@maxextratitle=\count298
-\c@maxextratitleyear=\count299
-\c@maxextraname=\count300
-\c@maxextradate=\count301
-\c@maxextraalpha=\count302
-\c@abbrvpenalty=\count303
-\c@highnamepenalty=\count304
-\c@lownamepenalty=\count305
-\c@maxparens=\count306
-\c@parenlevel=\count307
-\blx@tempcnta=\count308
-\blx@tempcntb=\count309
-\blx@tempcntc=\count310
-\blx@maxsection=\count311
-\blx@maxsegment@0=\count312
-\blx@notetype=\count313
-\blx@parenlevel@text=\count314
-\blx@parenlevel@foot=\count315
-\blx@sectionciteorder@0=\count316
-\blx@entrysetcounter=\count317
+\c@tabx@nest=\count278
+\c@listtotal=\count279
+\c@listcount=\count280
+\c@liststart=\count281
+\c@liststop=\count282
+\c@citecount=\count283
+\c@citetotal=\count284
+\c@multicitecount=\count285
+\c@multicitetotal=\count286
+\c@instcount=\count287
+\c@maxnames=\count288
+\c@minnames=\count289
+\c@maxitems=\count290
+\c@minitems=\count291
+\c@citecounter=\count292
+\c@maxcitecounter=\count293
+\c@savedcitecounter=\count294
+\c@uniquelist=\count295
+\c@uniquename=\count296
+\c@refsection=\count297
+\c@refsegment=\count298
+\c@maxextratitle=\count299
+\c@maxextratitleyear=\count300
+\c@maxextraname=\count301
+\c@maxextradate=\count302
+\c@maxextraalpha=\count303
+\c@abbrvpenalty=\count304
+\c@highnamepenalty=\count305
+\c@lownamepenalty=\count306
+\c@maxparens=\count307
+\c@parenlevel=\count308
+\blx@tempcnta=\count309
+\blx@tempcntb=\count310
+\blx@tempcntc=\count311
+\blx@maxsection=\count312
+\blx@maxsegment@0=\count313
+\blx@notetype=\count314
+\blx@parenlevel@text=\count315
+\blx@parenlevel@foot=\count316
+\blx@sectionciteorder@0=\count317
+\blx@entrysetcounter=\count318
 \labelnumberwidth=\skip52
 \labelalphawidth=\skip53
 \biblabelsep=\skip54
@@ -614,9 +629,9 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 \blx@bcfin=\read3
 \blx@bcfout=\write4
 \blx@langwohyphens=\language78
-\c@mincomprange=\count318
-\c@maxcomprange=\count319
-\c@mincompwidth=\count320
+\c@mincomprange=\count319
+\c@maxcomprange=\count320
+\c@mincompwidth=\count321
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -628,74 +643,74 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'bwl-FU.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count321
-\c@savedafterword=\count322
-\c@annotator=\count323
-\c@savedannotator=\count324
-\c@author=\count325
-\c@savedauthor=\count326
-\c@bookauthor=\count327
-\c@savedbookauthor=\count328
-\c@commentator=\count329
-\c@savedcommentator=\count330
-\c@editor=\count331
-\c@savededitor=\count332
-\c@editora=\count333
-\c@savededitora=\count334
-\c@editorb=\count335
-\c@savededitorb=\count336
-\c@editorc=\count337
-\c@savededitorc=\count338
-\c@foreword=\count339
-\c@savedforeword=\count340
-\c@holder=\count341
-\c@savedholder=\count342
-\c@introduction=\count343
-\c@savedintroduction=\count344
-\c@namea=\count345
-\c@savednamea=\count346
-\c@nameb=\count347
-\c@savednameb=\count348
-\c@namec=\count349
-\c@savednamec=\count350
-\c@translator=\count351
-\c@savedtranslator=\count352
-\c@shortauthor=\count353
-\c@savedshortauthor=\count354
-\c@shorteditor=\count355
-\c@savedshorteditor=\count356
-\c@labelname=\count357
-\c@savedlabelname=\count358
-\c@institution=\count359
-\c@savedinstitution=\count360
-\c@lista=\count361
-\c@savedlista=\count362
-\c@listb=\count363
-\c@savedlistb=\count364
-\c@listc=\count365
-\c@savedlistc=\count366
-\c@listd=\count367
-\c@savedlistd=\count368
-\c@liste=\count369
-\c@savedliste=\count370
-\c@listf=\count371
-\c@savedlistf=\count372
-\c@location=\count373
-\c@savedlocation=\count374
-\c@organization=\count375
-\c@savedorganization=\count376
-\c@origlocation=\count377
-\c@savedoriglocation=\count378
-\c@origpublisher=\count379
-\c@savedorigpublisher=\count380
-\c@publisher=\count381
-\c@savedpublisher=\count382
-\c@language=\count383
-\c@savedlanguage=\count384
-\c@origlanguage=\count385
-\c@savedoriglanguage=\count386
-\c@pageref=\count387
-\c@savedpageref=\count388
+\c@afterword=\count322
+\c@savedafterword=\count323
+\c@annotator=\count324
+\c@savedannotator=\count325
+\c@author=\count326
+\c@savedauthor=\count327
+\c@bookauthor=\count328
+\c@savedbookauthor=\count329
+\c@commentator=\count330
+\c@savedcommentator=\count331
+\c@editor=\count332
+\c@savededitor=\count333
+\c@editora=\count334
+\c@savededitora=\count335
+\c@editorb=\count336
+\c@savededitorb=\count337
+\c@editorc=\count338
+\c@savededitorc=\count339
+\c@foreword=\count340
+\c@savedforeword=\count341
+\c@holder=\count342
+\c@savedholder=\count343
+\c@introduction=\count344
+\c@savedintroduction=\count345
+\c@namea=\count346
+\c@savednamea=\count347
+\c@nameb=\count348
+\c@savednameb=\count349
+\c@namec=\count350
+\c@savednamec=\count351
+\c@translator=\count352
+\c@savedtranslator=\count353
+\c@shortauthor=\count354
+\c@savedshortauthor=\count355
+\c@shorteditor=\count356
+\c@savedshorteditor=\count357
+\c@labelname=\count358
+\c@savedlabelname=\count359
+\c@institution=\count360
+\c@savedinstitution=\count361
+\c@lista=\count362
+\c@savedlista=\count363
+\c@listb=\count364
+\c@savedlistb=\count365
+\c@listc=\count366
+\c@savedlistc=\count367
+\c@listd=\count368
+\c@savedlistd=\count369
+\c@liste=\count370
+\c@savedliste=\count371
+\c@listf=\count372
+\c@savedlistf=\count373
+\c@location=\count374
+\c@savedlocation=\count375
+\c@organization=\count376
+\c@savedorganization=\count377
+\c@origlocation=\count378
+\c@savedoriglocation=\count379
+\c@origpublisher=\count380
+\c@savedorigpublisher=\count381
+\c@publisher=\count382
+\c@savedpublisher=\count383
+\c@language=\count384
+\c@savedlanguage=\count385
+\c@origlanguage=\count386
+\c@savedoriglanguage=\count387
+\c@pageref=\count388
+\c@savedpageref=\count389
 \shorthandwidth=\skip60
 \shortjournalwidth=\skip61
 \shortserieswidth=\skip62
@@ -723,19 +738,19 @@ Package biblatex Info: ... file 'biblatex.def' found.
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\biblate
 x.def"
 File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
-\c@textcitecount=\count389
-\c@textcitetotal=\count390
-\c@textcitemaxnames=\count391
-\c@biburlbigbreakpenalty=\count392
-\c@biburlbreakpenalty=\count393
-\c@biburlnumpenalty=\count394
-\c@biburlucpenalty=\count395
-\c@biburllcpenalty=\count396
+\c@textcitecount=\count390
+\c@textcitetotal=\count391
+\c@textcitemaxnames=\count392
+\c@biburlbigbreakpenalty=\count393
+\c@biburlbreakpenalty=\count394
+\c@biburlnumpenalty=\count395
+\c@biburlucpenalty=\count396
+\c@biburllcpenalty=\count397
 \biburlbigskip=\muskip18
 \biburlnumskip=\muskip19
 \biburlucskip=\muskip20
 \biburllcskip=\muskip21
-\c@smartand=\count397
+\c@smartand=\count398
 )
 Package biblatex Info: Trying to load bibliography style 'bwl-FU'...
 Package biblatex Info: ... file 'bwl-FU.bbx' found.
@@ -755,8 +770,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex/bbx\sta
 ndard.bbx"
 File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count398
-\c@bbx:relatedtotal=\count399
+\c@bbx:relatedcount=\count399
+\c@bbx:relatedtotal=\count400
 )))
 Package biblatex Info: Trying to load citation style 'bwl-FU'...
 Package biblatex Info: ... file 'bwl-FU.cbx' found.
@@ -791,45 +806,45 @@ File: biblatex.cfg
 yer/tikz/libraries\tikzlibraryfit.code.tex"
 File: tikzlibraryfit.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
-\@quotelevel=\count400
-\@quotereset=\count401
+\@quotelevel=\count401
+\@quotereset=\count402
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3back
 end-pdfmode.def"
 File: l3backend-pdfmode.def 2019-04-06 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count402
-\l__pdf_internal_box=\box60
+\l__kernel_color_stack_int=\count403
+\l__pdf_internal_box=\box61
 ) ("Notes State-Space LBM.aux")
 \openout1 = `"Notes State-Space LBM.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
+LaTeX Font Info:    ... okay on input line 25.
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp
 -pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count403
-\scratchdimen=\dimen256
-\scratchbox=\box61
-\nofMPsegments=\count404
-\nofMParguments=\count405
+\scratchcounter=\count404
+\scratchdimen=\dimen263
+\scratchbox=\box62
+\nofMPsegments=\count405
+\nofMParguments=\count406
 \everyMPshowfont=\toks36
-\MPscratchCnt=\count406
-\MPscratchDim=\dimen257
-\MPnumerator=\count407
-\makeMPintoPDFobject=\count408
+\MPscratchCnt=\count407
+\MPscratchDim=\dimen264
+\MPnumerator=\count408
+\makeMPintoPDFobject=\count409
 \everyMPtoPDFconversion=\toks37
 )
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\eps
@@ -866,16 +881,16 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file '"Notes State-Space LBM".bbl' found.
  ("Notes State-Space LBM.bbl")
-Package biblatex Info: Reference section=0 on input line 29.
-Package biblatex Info: Reference segment=0 on input line 29.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 30.
+Package biblatex Info: Reference section=0 on input line 25.
+Package biblatex Info: Reference segment=0 on input line 25.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
 
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
 "
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 30.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
 
 
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
@@ -885,32 +900,30 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {C:/Users/Gabriel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 [2]
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 1
-37.
-
-("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmss.fd"
-File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
-)
-Overfull \hbox (49.509pt too wide) in paragraph at lines 180--181
+Overfull \hbox (49.72487pt too wide) in paragraph at lines 170--171
  [][] 
  []
 
 [3] [4] [5] [6] [7] [8] ("Notes State-Space LBM.aux")
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
 \openout1 = `"Notes State-Space LBM.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21706 strings out of 481568
- 440016 string characters out of 2913334
- 1033342 words of memory out of 3000000
- 36567 multiletter control sequences out of 15000+200000
- 553959 words of font info for 83 fonts, out of 3000000 for 9000
+ 22074 strings out of 481568
+ 454027 string characters out of 2913334
+ 1040223 words of memory out of 3000000
+ 36939 multiletter control sequences out of 15000+200000
+ 549802 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,15n,84p,1604b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 67i,15n,84p,1604b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
 0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecss0900.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
+pen/ec/dpi600\ecrm0800.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
 ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2
 .9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Gabriel\AppData\Lo
 cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Gabrie
@@ -918,29 +931,22 @@ l\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\
 Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
 728.pk><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmbx10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Gabriel/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Gabriel/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Gab
-riel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb
+/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Gabriel/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Gab
+riel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
 ><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/Gabriel/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Gabriel/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb>
-<C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cmextra/cmmib9.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Gabriel/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Gabriel/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Us
-ers/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmsy7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy9.pfb>
-Output written on "Notes State-Space LBM.pdf" (8 pages, 274715 bytes).
+s/cm/cmmib10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Gabriel/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Gabri
+el/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
+:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy7.pfb>
+Output written on "Notes State-Space LBM.pdf" (8 pages, 231027 bytes).
 PDF statistics:
- 341 PDF objects out of 1000 (max. 8388607)
+ 327 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
