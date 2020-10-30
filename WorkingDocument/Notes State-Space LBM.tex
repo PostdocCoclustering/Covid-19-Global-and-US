@@ -352,6 +352,59 @@ $
 %
 So for each row cluster $k$ we have a hidden Markov model with a latent process $\boldsymbol{\theta}_{kl}$ that guides the observed data $y_{kl}$. This means that we have in total $K$ HMMs, meaning a hidden Markov mixture model. Our set of observations are therefore samples from a groups of $K$ HMMs, each associated with a specific sub-behavior. 
 
+Returning to the example above with three time column clusters, the HMM can be illustrated like this:
+
+\begin{figure}[H]\label{HMMM}
+	\centering
+	\begin{tikzpicture}
+		\tikzstyle{main}=[circle, minimum size = 10mm, thick, draw =black!80, node distance = 16mm]
+		\tikzstyle{connect}=[-latex, thick]
+		%\tikzstyle{box}=[rectangle, draw=black!100]
+		%\node[ fill = white!100] (kappa) {$\kappa$};
+		%\node[main] (T) [right=of kappa] {$\mathcal{T}_t$};
+		
+		%\node[] (lambda) [below=of kappa] {$\lambda$};
+		%\node[main] (O) [right=of lambda] {$\mathcal{O}_t$};
+		
+		\node[main] (theta0) [right=of T] {$\boldsymbol{\theta}_0$};
+		\node[main] (theta1) [right=of theta0] {$\boldsymbol{\theta}_{k1}$};
+		\node[main] (theta2) [right=of theta1] {$\boldsymbol{\theta}_{k2}$};
+		\node[main] (theta11) [right=of theta2] {$\boldsymbol{\theta}_{k1}$};
+		\node[main] (theta3) [right=of theta11] {$\boldsymbol{\theta}_{k3}$};		
+		\node[main, fill = gray!25] (y1) [below=of theta1] {$\mathbf{y}_{k1}$};
+		\node[main, fill = gray!25] (y2) [right=of y1] {$\mathbf{y}_{k2}$};
+		\node[main, fill = gray!25] (y11) [right=of y2] {$\mathbf{y}_{k3}$};
+		\node[main, fill = gray!25] (y3) [right=of y11] {$\mathbf{y}_{k4}$};		
+		
+		%\path (kappa) edge [connect] (T);
+		%\path (lambda) edge [connect] (O);
+		
+		%\path (T) edge [connect] (theta0);
+		
+		\path (theta0) edge [connect] (theta1);
+		\path (theta1) edge [connect] (theta2);
+		
+		\path (theta1) edge [connect] (y1);
+		\path (theta2) edge [connect] (y2);
+		\path (theta11) edge [connect] (y11);
+		
+		
+		\path (theta2) edge [connect] (theta11);
+		\path (theta11) edge [connect] (theta3);
+		
+		%\path[bend right=45, color = gray!25] (O) edge [connect] (y1);
+		%\path[bend right=45, color = gray!25] (O) edge [connect] (y2);
+		%\path[bend right=45, color = gray!25] (O) edge [connect] (y11);
+		
+		%\path[bend left=45, color = gray!25] (T) edge [connect] (theta1);
+		%\path[bend left=45, color = gray!25] (T) edge [connect] (theta2);
+		%\path[bend left=45, color = gray!25] (T) edge [connect] (theta11);
+		
+		%\draw[] (-0.5,-2.5) rectangle (3,1);
+		
+	\end{tikzpicture}
+	\caption{Visualization of the eSIR model.}
+\end{figure}
 
 
 We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster, that in turn is distributed according to a Beta distribution. 
