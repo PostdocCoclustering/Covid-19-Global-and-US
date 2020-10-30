@@ -391,6 +391,7 @@ Returning to the example above with three time column clusters, the HMM can be i
 		
 		\path (theta2) edge [connect] (theta11);
 		\path (theta11) edge [connect] (theta3);
+		\path (theta3) edge [connect] (y3);
 		
 		%\path[bend right=45, color = gray!25] (O) edge [connect] (y1);
 		%\path[bend right=45, color = gray!25] (O) edge [connect] (y2);
@@ -403,7 +404,7 @@ Returning to the example above with three time column clusters, the HMM can be i
 		%\draw[] (-0.5,-2.5) rectangle (3,1);
 		
 	\end{tikzpicture}
-	\caption{Visualization of the eSIR model.}
+	\caption{Visualization of the HMM model.}
 \end{figure}
 
 
