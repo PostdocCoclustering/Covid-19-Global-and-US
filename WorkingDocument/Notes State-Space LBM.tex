@@ -307,9 +307,9 @@ $
 \theta_{kl}^R
 $
 %
-denote the probabilities of a case in row cluster $k$ and column cluster $l$ being infected and removed, respectively. Regarding the state process, we are going to deviate from the eSIR model and the Dirichlet distribution. The reason is that $\theta_{kl}$ is now guiding the observed data, and the time clusters are allowed to re-appear in the time interval. To illustrate that idea, consider the following figure.
+denote the probabilities of a case in row cluster $k$ and column cluster $l$ being infected and removed, respectively. Regarding the state process, we are going to deviate from the eSIR model and the Dirichlet distribution. The reason is that $\theta_{kl}$ is now guiding the observed data, and the time clusters are allowed to re-appear in the time interval. To illustrate that idea, consider Figure \ref{timeline}. We have, by co-clustering the data matrix using the LBM, ended up with three time (column) clusters. To illustrate how these clusters spread out across time, we 
 
-\begin{tikzpicture}
+\begin{tikzpicture}\label{timeline}
 	% draw horizontal line   
 	\draw[ultra thick, ->] (0,0) -- (\ImageWidth,0);
 	
@@ -342,7 +342,17 @@ denote the probabilities of a case in row cluster $k$ and column cluster $l$ bei
 	
 \end{tikzpicture}
 
-According to the figure, the first (column) cluster equals the time period between $t-2$ and $t-1$. The next period of time belongs to cluster 2, men for the next time period after that, we are back with Cluster 1 again. This is not possible with the Dirichlet distribution.  
+According to the figure, the first time (column) cluster equals the time period between $t-2$ and $t-1$. The next period of time, between $t-1$ and $t$ belongs to cluster 2, and after that we are back at cluster 1 before entering cluster 3. The LBM offers us the flexibility to return to clusters as we progress in time. This property seems well-suited when modeling the coronavirus pandemic as we for example currently are seeing a widespread second wave hit many countries. 
+
+To model the transition between time clusters, we need to estimate the transition matrix $A = [a_{l, l^\prime}]$, 
+%
+$
+[a_{l, l^\prime}] = P(\boldsymbol{\theta} = \boldsymbol{\theta}_{kl^\prime} |\boldsymbol{\theta} = \boldsymbol{\theta}_{kl} ). 
+$
+%
+So for each row cluster $k$ we have a hidden Markov model with a latent process $\boldsymbol{\theta}_{kl}$ that guides the observed data $y_{kl}$. This means that we have in total $K$ HMMs, meaning a hidden Markov mixture model. Our set of observations are therefore samples from a groups of $K$ HMMs, each associated with a specific sub-behavior. 
+
+
 
 We thus assume that the latent process $\boldsymbol{\theta}(t)$ guides the observed data in each block cluster, that in turn is distributed according to a Beta distribution. 
 
