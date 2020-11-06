@@ -2203,8 +2203,10 @@
     <bcf:citekey order="16">song2020epidemiological</bcf:citekey>
     <bcf:citekey order="17">osthus2017forecasting</bcf:citekey>
     <bcf:citekey order="18">song2020epidemiological</bcf:citekey>
-    <bcf:citekey order="19">keribin2015estimation</bcf:citekey>
-    <bcf:citekey order="20">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="19">osthus2017forecasting</bcf:citekey>
+    <bcf:citekey order="20">song2020epidemiological</bcf:citekey>
+    <bcf:citekey order="21">keribin2015estimation</bcf:citekey>
+    <bcf:citekey order="22">keribin2015estimation</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">
