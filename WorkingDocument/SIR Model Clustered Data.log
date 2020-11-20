@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  10 NOV 2020 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  20 NOV 2020 18:44
 entering extended mode
-**"./Notes State-Space LBM.tex"
-("Notes State-Space LBM.tex"
+**"./SIR Model Clustered Data.tex"
+("SIR Model Clustered Data.tex"
 LaTeX2e <2020-02-02>
 L3 programming layer <2020-01-31>
 ("C:\Users\Gabriel\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls
@@ -814,8 +814,8 @@ end-pdfmode.def"
 File: l3backend-pdfmode.def 2019-04-06 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count403
 \l__pdf_internal_box=\box61
-) ("Notes State-Space LBM.aux")
-\openout1 = `"Notes State-Space LBM.aux"'.
+) ("SIR Model Clustered Data.aux")
+\openout1 = `"SIR Model Clustered Data.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
@@ -876,11 +876,11 @@ File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
-\openout4 = `"Notes State-Space LBM.bcf"'.
+\openout4 = `"SIR Model Clustered Data.bcf"'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file '"Notes State-Space LBM".bbl' found.
- ("Notes State-Space LBM.bbl")
+Package biblatex Info: ... file '"SIR Model Clustered Data".bbl' found.
+ ("SIR Model Clustered Data.bbl")
 Package biblatex Info: Reference section=0 on input line 25.
 Package biblatex Info: Reference segment=0 on input line 25.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
@@ -899,51 +899,62 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Gabriel/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-[2]
-Overfull \hbox (49.72487pt too wide) in paragraph at lines 170--171
- [][] 
+Overfull \hbox (10.83609pt too wide) detected at line 121
+\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 y\OML/cmm/m/it/10 ; \OT1/cm
+r/bx/n/10 z\OML/cmm/m/it/10 ; []\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 []\OT1/cmr/
+m/n/10 ) = \OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OT1/cmr/bx/n/10 z\OT1/cmr/m/n/10
+ ; \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 ([]; 
+\OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 p\OT1/cmr/m/n/10 (\OT1/cm
+r/bx/n/10 y\OMS/cmsy/m/n/10 j\OT1/cmr/bx/n/10 z\OT1/cmr/m/n/10 ; \OML/cmm/m/it/
+10 []\OT1/cmr/m/n/10 ) = [] \OML/cmm/m/it/10 [] [] g\OT1/cmr/m/n/10 ([][]; \O
+ML/cmm/m/it/10 []\OT1/cmr/m/n/10 )[] [] \OML/cmm/m/it/10 '\OT1/cmr/m/n/10 (\OT
+1/cmr/bx/n/10 y[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 []\OT1/cmr/m/n/10 )[]
  []
 
-[3] [4] [5] [6] [7] [8] [9] ("Notes State-Space LBM.aux")
-Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
-\openout1 = `"Notes State-Space LBM.run.xml"'.
+
+Overfull \hbox (5.91797pt too wide) in paragraph at lines 126--128
+[]\T1/cmr/m/n/10 Since the la-bels are un-ob-served, the ob-served like-li-hood
+, ob-tained by marginal-
+ []
+
+[2]
+
+LaTeX Warning: Empty bibliography on input line 151.
+
+[3] ("SIR Model Clustered Data.aux")
+Package logreq Info: Writing requests to '"SIR Model Clustered Data".run.xml'.
+\openout1 = `"SIR Model Clustered Data.run.xml"'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22115 strings out of 481568
- 454681 string characters out of 2913334
- 1040255 words of memory out of 3000000
- 36980 multiletter control sequences out of 15000+200000
- 549802 words of font info for 70 fonts, out of 3000000 for 9000
+ 21527 strings out of 481568
+ 442805 string characters out of 2913334
+ 1033965 words of memory out of 3000000
+ 36398 multiletter control sequences out of 15000+200000
+ 545277 words of font info for 64 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 67i,15n,84p,1604b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 67i,16n,84p,850b,743s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm0800.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2
-.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Gabriel\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Gabrie
-l\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\
-Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
-728.pk><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Gabriel/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Gab
-riel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmib10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Gabriel/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Gabri
-el/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
-:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy5.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Notes State-Space LBM.pdf" (9 pages, 243181 bytes).
+0\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx1440.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
+ljfour/jknappen/ec/dpi600\ecrm1728.pk><C:/Users/Gabriel/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Gabriel/AppData/
+Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Ga
+briel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.p
+fb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Gabriel/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Users/Gabriel
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
+/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmr7.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Gabriel/AppData/Local/Programs
+/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on "SIR Model Clustered Data.pdf" (3 pages, 148907 bytes).
 PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
+ 179 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

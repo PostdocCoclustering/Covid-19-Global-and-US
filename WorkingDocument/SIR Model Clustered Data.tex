@@ -1,0 +1,152 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+%\usepackage{tikz}
+\usepackage{float}
+\usepackage{tikz-cd}
+
+\newcommand{\ImageWidth}{11cm}
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,positioning, arrows.meta}
+
+\usepackage[backend = biber, style=bwl-FU]{biblatex}
+\addbibresource{bibliography.bib}
+
+\usetikzlibrary{fit,positioning}
+
+\author{}
+\date{}
+\title{Summary of the state-space latent block model}
+
+\begin{document}
+\maketitle
+
+\section{Extending the SIR model for clustered data}
+
+Consider the data matrix
+%
+$$
+\mathbf{y} = \begin{bmatrix}
+	(y^I_1(1), y^R_1(1)) & (y^I_1(2), y^R_1(2)) & \ldots & (y^I_1(T), y^R_1(T))\\
+	(y^I_2(1), y^R_2(1)) & (y^I_2(2), y^R_2(2)) & \ldots & (y^I_2(T), y^R_2(T))\\
+	\vdots & \vdots & \ldots & \vdots \\
+	(y^I_n(1), y^R_n(1)) & (y^I_n(2), y^R_n(2)) & \ldots & (y^I_n(T), y^R_n(T))
+\end{bmatrix}
+$$
+%
+where $y_i^I(t)$ and $y_i^R(t)$, $i = 1, \ldots, n$ and $t = 1, \ldots, T$, denote the proportions of infected and removed in geographical region $i$ at time point $t$. For each discrete time point $t$, we thus record $\mathbf{y}_i(t) = (y_i^I(t), y_i^R(t))^\top$ for geographical region $i$. The dimension of the data matrix is thus $n \times T$.
+
+We assume that for each $\mathbf{y}_i$ there is an associated value of an unobserved label $z$ such that $z_{ik} = 1$ if $\mathbf{y}_i$ belongs to the $k$th cluster. It follows that the observations come from $K$ distinct populations, hereinafter referred to as components. Each component has its own distribution but which unit that belongs to which component is unknown. We address the problem of identifying these hidden clusters with a model-based approach. Assuming that the component distributions belong to the same parametric family $\varphi(\mathbf{y}; \phi_k)$ so that the component only differ by a parameter value, the mixing density equals
+%
+\begin{equation}\label{mixingdensity}
+	f(\mathbf{y}) = \sum_{k=1}^{K} \alpha_k \varphi(\mathbf{y}; \phi_k),
+\end{equation}
+%
+where $\phi_k$ is the parameter vector for the $k$th component, and $\alpha_1, \ldots, \alpha_K$ are the mixing weights, meaning that $P(z_{ik} = 1) = \alpha_k$. They fulfill $\alpha_k > 0$ and $\sum_{k} \alpha_k = 1$. In Equation \ref{mixingdensity}, $\varphi(\cdot; \phi_k)$ thus denotes the density of the $k$th component given its parameter value $\phi_k$. 
+
+The model and its assumptions are summarized as follows: 
+
+\begin{enumerate}
+	
+	\item $\mathbf{z} = (z_{ik}; i = 1, \ldots, n; k = 1, \ldots, K)$ represents the clustering of rows into $K$ groups, where row $i$ belongs to cluster $k$ if $z_{ik} = 1$. The group indicator of row $i$ is denoted $\mathbf{z}_i$. These row labels are independent, and follow a multinomial distribution:
+	% 
+	$$
+	\mathbf{z}_i \sim \mathcal{M}(1, \boldsymbol{\alpha} = (\alpha_1, \ldots \alpha_K)).
+	$$
+	%
+	
+	\item Conditional on the row labels, the observed data $\mathbf{y}$ are independent and their conditional distribution follows a Dirichlet distribution with parameter only depending on the given cluster,
+	%
+	\begin{equation}\label{obsprocess}
+		\mathbf{y}_{i}(t) | \{z_{ik} = 1\}, \phi_k \sim \mathcal{D}( \boldsymbol{\theta}_{k}(t)),
+	\end{equation}
+	%
+	where $\boldsymbol{\theta}_{k}(t) = (\theta_{k}^S(t), \theta_{k}^I(t), \theta_{k}^R(t))$ denotes the probability of an individual being susceptible, infected and removed (recovered or died), respectively, in cluster $k$ and at time point $t$.
+	
+	\item For each cluster $k$, it is assumed that the model proportions 
+	%
+	$
+	\boldsymbol{\theta}_{k}(0:T) = (\boldsymbol{\theta}_k(0), \boldsymbol{\theta}_k(1), \ldots, \boldsymbol{\theta}_k(T))
+	$
+	%
+	form a first-order Markov chain. This implies that 
+	%
+	$
+	g(\boldsymbol{\theta}_k(t)|\boldsymbol{\theta}_{k}(0:(t-1))) = g(\boldsymbol{\theta}_k(t)|\boldsymbol{\theta}_{k}(t-1)) \, \forall t \in [0:T]. 
+	$
+	It is furthermore assumed that $\boldsymbol{\theta}_{k}$ are independent, random vectors following a Dirichlet distribution, 
+	%
+	\begin{equation}\label{latentprocess}
+	\boldsymbol{\theta}_{k}(t)|\boldsymbol{\theta}_{k}(t-1), \phi_k \sim \mathcal{D}(\kappa f(\boldsymbol{\theta}_{k}(t-1))).
+	\end{equation}
+
+	%
+	The term $\kappa$ controls the variance, $\phi_k = (\boldsymbol{\alpha}, \boldsymbol{\theta}_k, \rho_k, \gamma_k, \kappa)$, and the function $f(\cdot) \in \mathbb{R}^3$ is the solution to the following system of nonlinear differential equations,
+	%
+	\begin{equation} \label{SIR}
+		\begin{split}
+			&\frac{d\theta_{k}^S(t)}{dt} = -\rho_{k}\theta_{k}^S(t)\theta_{k}^I(t), \\
+			& \frac{d\theta_{k}^I(t)}{dt} = 
+			\rho_{k}\theta_{k}^S(t)\theta_{k}^I(t) - \gamma_{k} \theta_{k}^I(t), \\
+			& \frac{d\theta_{k}^R(t)}{dt} = 
+			\gamma_{k} \theta_{k}^I(t),
+		\end{split}
+	\end{equation}
+	%
+where $\rho_{k}$ is the transmission rate in cluster $k$, and $\gamma_{k}$ is the recovery rate in cluster $k$. In this way, we have a transmission and recovery rate that depends on geographical region. The so-called Runge-Kutta approximation can be implemented to solve the system in Equation \ref{SIR}.
+	
+\end{enumerate}
+
+
+%-------------------------%
+% Estimation of the model %
+%-------------------------%
+
+\section{Estimation}
+
+Following from the assumptions 1-3 above, the complete data likelihood of the proposed model equals
+%
+\begin{equation}\label{complete_likelihood}
+	p(\mathbf{y}, \mathbf{z}, \mathbf{\boldsymbol{\theta}}; \phi_k) =
+	p(\mathbf{z}; \phi_k) 
+	p(\mathbf{\boldsymbol{\theta}}; \phi_k)
+	p(\mathbf{y}|\mathbf{z}; \phi_k) = 
+	\prod_{i,k} \alpha_k^{z_{ik}} 
+	\prod_{i,k} g(\boldsymbol{\theta}_k; \phi_k)^{z_{ik}} 
+	\prod_{i,k} \varphi(\mathbf{y}_{i}; \phi_{k})^{{z_{ik}}} 
+\end{equation}
+
+%
+where $g(\cdot)$ is specified by Equation \ref{latentprocess} and $\varphi(\cdot)$ is specified by Equation \ref{obsprocess}.
+
+Since the labels are unobserved, the observed likelihood, obtained by marginalizing over all label configurations, equals
+%
+$$
+p(\mathbf{y}; \phi_k) =
+ \sum_{\mathbf{z} \in \mathcal{Z}} 
+ \bigg(  	
+	\prod_{i,k} \alpha_k^{z_{ik}} 
+	\prod_{i,k} g(\boldsymbol{\theta}_k; \phi_k)^{z_{ik}} 
+	\prod_{i,k} \varphi(\mathbf{y}_{i}; \phi_{k})^{{z_{ik}}}   
+\bigg)
+$$
+% 
+
+\section{Questions/Things I'm thinking about}
+\begin{enumerate}
+	
+	\item If we consider the suggested model by looking at Equations \ref{obsprocess} and \ref{latentprocess}, is the time dependence clear this time? And if we look at the likelihood as stated in \ref{complete_likelihood}, is the time dependence still clear? I feel fairly confident that the time dependence is incorporated if we look at Equations \ref{obsprocess} and \ref{latentprocess}, but less sure about the likelihood.
+	
+	\item I have included the $\boldsymbol{\theta}$ component into the likelihood. Up until now I have left it out of the likelihood but it seems reasonable to that it should be included. 
+	
+	\item I am not sure how/if the EM algorithm (or some modified version of it) would work to estimate this model, given that we have two unobserved parts, $z$ and $\boldsymbol{\theta}$. This is something that I will continue to think about until our meeting. 
+	
+	\item I am trying to implement the clustering idea presented here into the estimation framework suggested in the eSIR paper (MCMC using Gibbs sampling). I will hopefully have something to show you regarding this on Monday. 
+\end{enumerate}
+
+\printbibliography
+\end{document}
