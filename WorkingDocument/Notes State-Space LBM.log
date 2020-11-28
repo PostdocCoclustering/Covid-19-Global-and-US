@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  10 NOV 2020 17:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.4.3)  26 NOV 2020 01:05
 entering extended mode
 **"./Notes State-Space LBM.tex"
 ("Notes State-Space LBM.tex"
@@ -904,46 +904,41 @@ Overfull \hbox (49.72487pt too wide) in paragraph at lines 170--171
  [][] 
  []
 
-[3] [4] [5] [6] [7] [8] [9] ("Notes State-Space LBM.aux")
-Package logreq Info: Writing requests to '"Notes State-Space LBM".run.xml'.
-\openout1 = `"Notes State-Space LBM.run.xml"'.
+[3] [4]
 
- ) 
+LaTeX Warning: Reference `timeline' on page 5 undefined on input line 282.
+
+
+LaTeX Warning: Reference `timeline' on page 5 undefined on input line 282.
+
+
+LaTeX Warning: Reference `timeline' on page 5 undefined on input line 324.
+
+)
+Runaway argument?
+{\}_1 \sim \text {Beta}(\lambda ^I \theta _{kl}^I, \lambda ^I(1 - \theta \ETC.
+! File ended while scanning use of \boldsymbol .
+<inserted text> 
+                \par 
+<*> "./Notes State-Space LBM.tex"
+                                 
+I suspect you have forgotten a `}', causing me
+to read past where you wanted me to stop.
+I'll try to recover; but if the error is serious,
+you'd better type `E' or `X' now and fix your file.
+
+! Emergency stop.
+<*> "./Notes State-Space LBM.tex"
+                                 
+*** (job aborted, no legal \end found)
+
+ 
 Here is how much of TeX's memory you used:
- 22115 strings out of 481568
- 454681 string characters out of 2913334
- 1040255 words of memory out of 3000000
- 36980 multiletter control sequences out of 15000+200000
- 549802 words of font info for 70 fonts, out of 3000000 for 9000
+ 21981 strings out of 481568
+ 452132 string characters out of 2913334
+ 1039687 words of memory out of 3000000
+ 36850 multiletter control sequences out of 15000+200000
+ 549892 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  67i,15n,84p,1604b,1452s stack positions out of 5000i,500n,10000p,200000b,50000s
- <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi60
-0\ecti1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecrm0800.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Gabriel\AppData\Local\MiKTeX\2
-.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Gabriel\AppData\Lo
-cal\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm0900.pk> <C:\Users\Gabrie
-l\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx0900.pk> <C:\
-Users\Gabriel\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1
-728.pk><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmbx10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Gabriel/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Gabriel/AppData/L
-ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/Gab
-riel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb
-><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmib10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cmextra/cmmib7.pfb><C:/Users/Gabriel/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Gabriel/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/Gabri
-el/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C
-:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy5.pfb><C:/Users/Gabriel/AppData/Local/Programs/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on "Notes State-Space LBM.pdf" (9 pages, 243181 bytes).
-PDF statistics:
- 334 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+!  ==> Fatal error occurred, no output PDF file produced!
