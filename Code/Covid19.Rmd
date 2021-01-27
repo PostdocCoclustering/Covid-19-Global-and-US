@@ -438,6 +438,8 @@ Y <- NI_complete / N - R #Jan13->Feb 11
 ### Step function of pi(t)
 change_time <- c("01/23/2020", "02/04/2020", "02/08/2020")
 pi0<- c(1.0, 0.9, 0.5, 0.1)
+
+#tvt.eSIR instead of sslbm_mod
 res.step <- tvt.eSIR(Y, R, begin_str = "01/13/2020", T_fin = 200,
             pi0 = pi0, change_time = change_time, dic = T, 
             casename = "Hubei_step", save_files = T, save_mcmc=F,
