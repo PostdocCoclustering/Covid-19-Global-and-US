@@ -132,6 +132,7 @@ posterior <- jags.model(
     'T_prime' = T_prime,
     'pi' = pi,
     'Nclust' = Nclust,
+    'clust' = clust,
     onesRepNclust = rep(1, 2)
   ),
   n.chains = nchain,
